@@ -1,0 +1,3059 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="teletonModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="teletonModelStoreContainer">
+          <EntitySet Name="actividades_enfermeria" EntityType="teletonModel.Store.actividades_enfermeria" store:Type="Tables" Schema="mysql_14667_teletonback" />
+          <EntitySet Name="altas" EntityType="teletonModel.Store.altas" store:Type="Tables" Schema="mysql_14667_teletonback" />
+          <EntitySet Name="altas_areas" EntityType="teletonModel.Store.altas_areas" store:Type="Tables" Schema="mysql_14667_teletonback" />
+          <EntitySet Name="areas" EntityType="teletonModel.Store.areas" store:Type="Tables" Schema="mysql_14667_teletonback" />
+          <EntitySet Name="atenciones_enfermeria" EntityType="teletonModel.Store.atenciones_enfermeria" store:Type="Tables" Schema="mysql_14667_teletonback" />
+          <EntitySet Name="ayudas_tecnicas" EntityType="teletonModel.Store.ayudas_tecnicas" store:Type="Tables" Schema="mysql_14667_teletonback" />
+          <EntitySet Name="cargos" EntityType="teletonModel.Store.cargos" store:Type="Tables" Schema="mysql_14667_teletonback" />
+          <EntitySet Name="centros" EntityType="teletonModel.Store.centros" store:Type="Tables" Schema="mysql_14667_teletonback" />
+          <EntitySet Name="citas_doctor" EntityType="teletonModel.Store.citas_doctor" store:Type="Tables" Schema="mysql_14667_teletonback" />
+          <EntitySet Name="citas_terapia" EntityType="teletonModel.Store.citas_terapia" store:Type="Tables" Schema="mysql_14667_teletonback" />
+          <EntitySet Name="clasificacion_paciente" EntityType="teletonModel.Store.clasificacion_paciente" store:Type="Tables" Schema="mysql_14667_teletonback" />
+          <EntitySet Name="condicion" EntityType="teletonModel.Store.condicion" store:Type="Tables" Schema="mysql_14667_teletonback" />
+          <EntitySet Name="departamento" EntityType="teletonModel.Store.departamento" store:Type="Tables" Schema="mysql_14667_teletonback" />
+          <EntitySet Name="diagnosticos" EntityType="teletonModel.Store.diagnosticos" store:Type="Tables" Schema="mysql_14667_teletonback" />
+          <EntitySet Name="dx" EntityType="teletonModel.Store.dx" store:Type="Tables" Schema="mysql_14667_teletonback" />
+          <EntitySet Name="empleados" EntityType="teletonModel.Store.empleados" store:Type="Tables" Schema="mysql_14667_teletonback" />
+          <EntitySet Name="escolaridad" EntityType="teletonModel.Store.escolaridad" store:Type="Tables" Schema="mysql_14667_teletonback" />
+          <EntitySet Name="estado_alta" EntityType="teletonModel.Store.estado_alta" store:Type="Tables" Schema="mysql_14667_teletonback" />
+          <EntitySet Name="estado_civil" EntityType="teletonModel.Store.estado_civil" store:Type="Tables" Schema="mysql_14667_teletonback" />
+          <EntitySet Name="evoluciones" EntityType="teletonModel.Store.evoluciones" store:Type="Tables" Schema="mysql_14667_teletonback" />
+          <EntitySet Name="historial" EntityType="teletonModel.Store.historial" store:Type="Tables" Schema="mysql_14667_teletonback" />
+          <EntitySet Name="historia_clinica_adultos" EntityType="teletonModel.Store.historia_clinica_adultos" store:Type="Tables" Schema="mysql_14667_teletonback" />
+          <EntitySet Name="historia_clinica_pediatrica" EntityType="teletonModel.Store.historia_clinica_pediatrica" store:Type="Tables" Schema="mysql_14667_teletonback" />
+          <EntitySet Name="municipio" EntityType="teletonModel.Store.municipio" store:Type="Tables" Schema="mysql_14667_teletonback" />
+          <EntitySet Name="ocupaciones" EntityType="teletonModel.Store.ocupaciones" store:Type="Tables" Schema="mysql_14667_teletonback" />
+          <EntitySet Name="pacientes" EntityType="teletonModel.Store.pacientes" store:Type="Tables" Schema="mysql_14667_teletonback" />
+          <EntitySet Name="parametros" EntityType="teletonModel.Store.parametros" store:Type="Tables" Schema="mysql_14667_teletonback" />
+          <EntitySet Name="permisos" EntityType="teletonModel.Store.permisos" store:Type="Tables" Schema="mysql_14667_teletonback" />
+          <EntitySet Name="permisos_x_roles" EntityType="teletonModel.Store.permisos_x_roles" store:Type="Tables" Schema="mysql_14667_teletonback" />
+          <EntitySet Name="procedencia" EntityType="teletonModel.Store.procedencia" store:Type="Tables" Schema="mysql_14667_teletonback" />
+          <EntitySet Name="procedencia_descripcion" EntityType="teletonModel.Store.procedencia_descripcion" store:Type="Tables" Schema="mysql_14667_teletonback" />
+          <EntitySet Name="productividad" EntityType="teletonModel.Store.productividad" store:Type="Tables" Schema="mysql_14667_teletonback" />
+          <EntitySet Name="referencia" EntityType="teletonModel.Store.referencia" store:Type="Tables" Schema="mysql_14667_teletonback" />
+          <EntitySet Name="roles" EntityType="teletonModel.Store.roles" store:Type="Tables" Schema="mysql_14667_teletonback" />
+          <EntitySet Name="tipo_daño" EntityType="teletonModel.Store.tipo_daño" store:Type="Tables" Schema="mysql_14667_teletonback" />
+          <EntitySet Name="usuarios" EntityType="teletonModel.Store.usuarios" store:Type="Tables" Schema="mysql_14667_teletonback" />
+          <EntitySet Name="usuarios_x_rol" EntityType="teletonModel.Store.usuarios_x_rol" store:Type="Tables" Schema="mysql_14667_teletonback" />
+          <AssociationSet Name="actividades_fk" Association="teletonModel.Store.actividades_fk">
+            <End Role="actividades_enfermeria" EntitySet="actividades_enfermeria" />
+            <End Role="atenciones_enfermeria" EntitySet="atenciones_enfermeria" />
+          </AssociationSet>
+          <AssociationSet Name="atenciones_enfermeria_fk" Association="teletonModel.Store.atenciones_enfermeria_fk">
+            <End Role="pacientes" EntitySet="pacientes" />
+            <End Role="atenciones_enfermeria" EntitySet="atenciones_enfermeria" />
+          </AssociationSet>
+          <AssociationSet Name="atenciones_enfermeria_fk1" Association="teletonModel.Store.atenciones_enfermeria_fk1">
+            <End Role="usuarios" EntitySet="usuarios" />
+            <End Role="atenciones_enfermeria" EntitySet="atenciones_enfermeria" />
+          </AssociationSet>
+          <AssociationSet Name="cargo_fk" Association="teletonModel.Store.cargo_fk">
+            <End Role="cargos" EntitySet="cargos" />
+            <End Role="empleados" EntitySet="empleados" />
+          </AssociationSet>
+          <AssociationSet Name="citas_doctor_fk" Association="teletonModel.Store.citas_doctor_fk">
+            <End Role="usuarios" EntitySet="usuarios" />
+            <End Role="citas_doctor" EntitySet="citas_doctor" />
+          </AssociationSet>
+          <AssociationSet Name="citas_terapia_fk" Association="teletonModel.Store.citas_terapia_fk">
+            <End Role="pacientes" EntitySet="pacientes" />
+            <End Role="citas_terapia" EntitySet="citas_terapia" />
+          </AssociationSet>
+          <AssociationSet Name="departamento_paciente_fk" Association="teletonModel.Store.departamento_paciente_fk">
+            <End Role="departamento" EntitySet="departamento" />
+            <End Role="pacientes" EntitySet="pacientes" />
+          </AssociationSet>
+          <AssociationSet Name="diagnosticos_fk" Association="teletonModel.Store.diagnosticos_fk">
+            <End Role="diagnosticos" EntitySet="diagnosticos" />
+            <End Role="evoluciones" EntitySet="evoluciones" />
+          </AssociationSet>
+          <AssociationSet Name="diagnostico_FK" Association="teletonModel.Store.diagnostico_FK">
+            <End Role="diagnosticos" EntitySet="diagnosticos" />
+            <End Role="pacientes" EntitySet="pacientes" />
+          </AssociationSet>
+          <AssociationSet Name="empleado_fk" Association="teletonModel.Store.empleado_fk">
+            <End Role="empleados" EntitySet="empleados" />
+            <End Role="usuarios" EntitySet="usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="escoralidad_fk" Association="teletonModel.Store.escoralidad_fk">
+            <End Role="escolaridad" EntitySet="escolaridad" />
+            <End Role="pacientes" EntitySet="pacientes" />
+          </AssociationSet>
+          <AssociationSet Name="evaluador_fk" Association="teletonModel.Store.evaluador_fk">
+            <End Role="usuarios" EntitySet="usuarios" />
+            <End Role="evoluciones" EntitySet="evoluciones" />
+          </AssociationSet>
+          <AssociationSet Name="fk_area" Association="teletonModel.Store.fk_area">
+            <End Role="areas" EntitySet="areas" />
+            <End Role="historial" EntitySet="historial" />
+          </AssociationSet>
+          <AssociationSet Name="fk_area_2" Association="teletonModel.Store.fk_area_2">
+            <End Role="areas" EntitySet="areas" />
+            <End Role="altas_areas" EntitySet="altas_areas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ayudas_tecnicas" Association="teletonModel.Store.fk_ayudas_tecnicas">
+            <End Role="ayudas_tecnicas" EntitySet="ayudas_tecnicas" />
+            <End Role="evoluciones" EntitySet="evoluciones" />
+          </AssociationSet>
+          <AssociationSet Name="fk_clasificacion" Association="teletonModel.Store.fk_clasificacion">
+            <End Role="clasificacion_paciente" EntitySet="clasificacion_paciente" />
+            <End Role="evoluciones" EntitySet="evoluciones" />
+          </AssociationSet>
+          <AssociationSet Name="fk_condicion" Association="teletonModel.Store.fk_condicion">
+            <End Role="condicion" EntitySet="condicion" />
+            <End Role="evoluciones" EntitySet="evoluciones" />
+          </AssociationSet>
+          <AssociationSet Name="fk_escolaridad" Association="teletonModel.Store.fk_escolaridad">
+            <End Role="escolaridad" EntitySet="escolaridad" />
+            <End Role="evoluciones" EntitySet="evoluciones" />
+          </AssociationSet>
+          <AssociationSet Name="fk_estado_alta" Association="teletonModel.Store.fk_estado_alta">
+            <End Role="estado_alta" EntitySet="estado_alta" />
+            <End Role="evoluciones" EntitySet="evoluciones" />
+          </AssociationSet>
+          <AssociationSet Name="fk_n_expediente" Association="teletonModel.Store.fk_n_expediente">
+            <End Role="pacientes" EntitySet="pacientes" />
+            <End Role="historial" EntitySet="historial" />
+          </AssociationSet>
+          <AssociationSet Name="fk_n_expediente_2" Association="teletonModel.Store.fk_n_expediente_2">
+            <End Role="pacientes" EntitySet="pacientes" />
+            <End Role="altas_areas" EntitySet="altas_areas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_n_expediente_3" Association="teletonModel.Store.fk_n_expediente_3">
+            <End Role="pacientes" EntitySet="pacientes" />
+            <End Role="historia_clinica_adultos" EntitySet="historia_clinica_adultos" />
+          </AssociationSet>
+          <AssociationSet Name="fk_n_expediente_4" Association="teletonModel.Store.fk_n_expediente_4">
+            <End Role="pacientes" EntitySet="pacientes" />
+            <End Role="historia_clinica_pediatrica" EntitySet="historia_clinica_pediatrica" />
+          </AssociationSet>
+          <AssociationSet Name="fk_n_expediente_altas" Association="teletonModel.Store.fk_n_expediente_altas">
+            <End Role="pacientes" EntitySet="pacientes" />
+            <End Role="altas" EntitySet="altas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ocupaciones" Association="teletonModel.Store.fk_ocupaciones">
+            <End Role="ocupaciones" EntitySet="ocupaciones" />
+            <End Role="evoluciones" EntitySet="evoluciones" />
+          </AssociationSet>
+          <AssociationSet Name="fk_procedencia" Association="teletonModel.Store.fk_procedencia">
+            <End Role="procedencia" EntitySet="procedencia" />
+            <End Role="evoluciones" EntitySet="evoluciones" />
+          </AssociationSet>
+          <AssociationSet Name="fk_productividad" Association="teletonModel.Store.fk_productividad">
+            <End Role="productividad" EntitySet="productividad" />
+            <End Role="evoluciones" EntitySet="evoluciones" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tipo_daño" Association="teletonModel.Store.fk_tipo_daño">
+            <End Role="tipo_daño" EntitySet="tipo_daño" />
+            <End Role="evoluciones" EntitySet="evoluciones" />
+          </AssociationSet>
+          <AssociationSet Name="fk_username" Association="teletonModel.Store.fk_username">
+            <End Role="usuarios" EntitySet="usuarios" />
+            <End Role="historial" EntitySet="historial" />
+          </AssociationSet>
+          <AssociationSet Name="fk_username_2" Association="teletonModel.Store.fk_username_2">
+            <End Role="usuarios" EntitySet="usuarios" />
+            <End Role="altas_areas" EntitySet="altas_areas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_username_3" Association="teletonModel.Store.fk_username_3">
+            <End Role="usuarios" EntitySet="usuarios" />
+            <End Role="historia_clinica_adultos" EntitySet="historia_clinica_adultos" />
+          </AssociationSet>
+          <AssociationSet Name="fk_username_4" Association="teletonModel.Store.fk_username_4">
+            <End Role="usuarios" EntitySet="usuarios" />
+            <End Role="historia_clinica_pediatrica" EntitySet="historia_clinica_pediatrica" />
+          </AssociationSet>
+          <AssociationSet Name="fk_username_altas" Association="teletonModel.Store.fk_username_altas">
+            <End Role="usuarios" EntitySet="usuarios" />
+            <End Role="altas" EntitySet="altas" />
+          </AssociationSet>
+          <AssociationSet Name="municipio_paciente_fk" Association="teletonModel.Store.municipio_paciente_fk">
+            <End Role="municipio" EntitySet="municipio" />
+            <End Role="pacientes" EntitySet="pacientes" />
+          </AssociationSet>
+          <AssociationSet Name="pacientes_fk" Association="teletonModel.Store.pacientes_fk">
+            <End Role="estado_civil" EntitySet="estado_civil" />
+            <End Role="pacientes" EntitySet="pacientes" />
+          </AssociationSet>
+          <AssociationSet Name="pacientes_fk1" Association="teletonModel.Store.pacientes_fk1">
+            <End Role="pacientes" EntitySet="pacientes" />
+            <End Role="evoluciones" EntitySet="evoluciones" />
+          </AssociationSet>
+          <AssociationSet Name="paciente_fk" Association="teletonModel.Store.paciente_fk">
+            <End Role="pacientes" EntitySet="pacientes" />
+            <End Role="citas_doctor" EntitySet="citas_doctor" />
+          </AssociationSet>
+          <AssociationSet Name="permisos_fk" Association="teletonModel.Store.permisos_fk">
+            <End Role="permisos" EntitySet="permisos" />
+            <End Role="permisos_x_roles" EntitySet="permisos_x_roles" />
+          </AssociationSet>
+          <AssociationSet Name="procedencia_fk" Association="teletonModel.Store.procedencia_fk">
+            <End Role="procedencia" EntitySet="procedencia" />
+            <End Role="procedencia_descripcion" EntitySet="procedencia_descripcion" />
+          </AssociationSet>
+          <AssociationSet Name="profesion_fk" Association="teletonModel.Store.profesion_fk">
+            <End Role="ocupaciones" EntitySet="ocupaciones" />
+            <End Role="pacientes" EntitySet="pacientes" />
+          </AssociationSet>
+          <AssociationSet Name="roles_fk" Association="teletonModel.Store.roles_fk">
+            <End Role="roles" EntitySet="roles" />
+            <End Role="permisos_x_roles" EntitySet="permisos_x_roles" />
+          </AssociationSet>
+          <AssociationSet Name="roles_fk1" Association="teletonModel.Store.roles_fk1">
+            <End Role="centros" EntitySet="centros" />
+            <End Role="roles" EntitySet="roles" />
+          </AssociationSet>
+          <AssociationSet Name="rol_fk" Association="teletonModel.Store.rol_fk">
+            <End Role="roles" EntitySet="roles" />
+            <End Role="usuarios_x_rol" EntitySet="usuarios_x_rol" />
+          </AssociationSet>
+          <AssociationSet Name="usuarios_fk" Association="teletonModel.Store.usuarios_fk">
+            <End Role="usuarios" EntitySet="usuarios" />
+            <End Role="usuarios_x_rol" EntitySet="usuarios_x_rol" />
+          </AssociationSet>
+          <AssociationSet Name="usuario_fk" Association="teletonModel.Store.usuario_fk">
+            <End Role="usuarios" EntitySet="usuarios" />
+            <End Role="citas_terapia" EntitySet="citas_terapia" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="actividades_enfermeria">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="actividad" Type="varchar" Nullable="false" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="altas">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="n_expediente" Type="uint" Nullable="false" />
+          <Property Name="prefijo" Type="usmallint" Nullable="false" />
+          <Property Name="fecha" Type="datetime" Nullable="false" />
+          <Property Name="username" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="texto" Type="longtext" />
+        </EntityType>
+        <EntityType Name="altas_areas">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="n_expediente" Type="uint" Nullable="false" />
+          <Property Name="prefijo" Type="usmallint" Nullable="false" />
+          <Property Name="fecha" Type="datetime" Nullable="false" />
+          <Property Name="username" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="texto" Type="longtext" />
+          <Property Name="area" Type="uint" Nullable="false" />
+          <Property Name="alta" Type="bool" Nullable="false" />
+        </EntityType>
+        <EntityType Name="areas">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="area" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="orden" Type="uint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="atenciones_enfermeria">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="enfermera" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="prefijo" Type="usmallint" Nullable="false" />
+          <Property Name="expediente" Type="uint" Nullable="false" />
+          <Property Name="fecha" Type="date" Nullable="false" />
+          <Property Name="actividad" Type="uint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ayudas_tecnicas">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uint" Nullable="false" />
+          <Property Name="ayuda" Type="varchar" Nullable="false" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="cargos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="cargo" Type="varchar" Nullable="false" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="centros">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="lugar" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="siguiente_expediente" Type="ubigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="citas_doctor">
+          <Key>
+            <PropertyRef Name="doctor_username" />
+            <PropertyRef Name="fecha_hora" />
+          </Key>
+          <Property Name="doctor_username" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="prefijo" Type="usmallint" Nullable="false" />
+          <Property Name="expediente" Type="uint" Nullable="false" />
+          <Property Name="fecha_hora" Type="datetime" Nullable="false" />
+          <Property Name="tipo" Type="varchar" Nullable="false" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="citas_terapia">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="user" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="prefijo" Type="usmallint" Nullable="false" />
+          <Property Name="expediente" Type="uint" Nullable="false" />
+          <Property Name="fecha" Type="date" Nullable="false" />
+          <Property Name="hora_inicio" Type="time" Nullable="false" />
+          <Property Name="hora_final" Type="time" Nullable="false" />
+          <Property Name="atendido" Type="bool" Nullable="false" />
+        </EntityType>
+        <EntityType Name="clasificacion_paciente">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uint" Nullable="false" />
+          <Property Name="clasificacion" Type="varchar" Nullable="false" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="condicion">
+          <Key>
+            <PropertyRef Name="simbolo" />
+          </Key>
+          <Property Name="condicion" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="simbolo" Type="char" Nullable="false" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="departamento">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="varchar" Nullable="false" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="diagnosticos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="diagnostico" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="codigoInter" Type="char" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="dx">
+          <Key>
+            <PropertyRef Name="simbolo" />
+          </Key>
+          <Property Name="dx" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="simbolo" Type="char" Nullable="false" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="empleados">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="primer_apellido" Type="varchar" Nullable="false" MaxLength="15" />
+          <Property Name="segundo_apellido" Type="varchar" Nullable="false" MaxLength="15" />
+          <Property Name="nombres" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="puesto" Type="uint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="escolaridad">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uint" Nullable="false" />
+          <Property Name="Grado" Type="varchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="estado_alta">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uint" Nullable="false" />
+          <Property Name="estado" Type="varchar" Nullable="false" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="estado_civil">
+          <Key>
+            <PropertyRef Name="estado" />
+          </Key>
+          <Property Name="estado" Type="varchar" Nullable="false" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="evoluciones">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="ubigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="fecha" Type="date" Nullable="false" />
+          <Property Name="prefijo" Type="usmallint" Nullable="false" />
+          <Property Name="expediente" Type="uint" Nullable="false" />
+          <Property Name="id_diagnostico" Type="uint" />
+          <Property Name="evaluador" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="notas" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="id_procedencia" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="id_escolaridad" Type="uint" Nullable="false" />
+          <Property Name="id_ocupacion" Type="uint" Nullable="false" />
+          <Property Name="id_clasificacion_paciente" Type="uint" Nullable="false" />
+          <Property Name="id_condicion" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="eteologia" Type="longtext" />
+          <Property Name="id_tipo_daño" Type="uint" Nullable="false" />
+          <Property Name="funcion_estructura" Type="varchar" MaxLength="10" />
+          <Property Name="años_tiempo_discapacidad" Type="uint" />
+          <Property Name="meses_tiempo_discapacidad" Type="uint" />
+          <Property Name="dias_tiempo_discapacidad" Type="uint" />
+          <Property Name="años_TSTDL" Type="uint" />
+          <Property Name="meses_TSTDL" Type="uint" />
+          <Property Name="dias_TSTDL" Type="uint" />
+          <Property Name="id_ayudas_tecnicas" Type="uint" Nullable="false" />
+          <Property Name="id_estado_alta" Type="uint" Nullable="false" />
+          <Property Name="id_productividad" Type="uint" Nullable="false" />
+          <Property Name="actividades_participacion" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="historial">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="n_expediente" Type="uint" Nullable="false" />
+          <Property Name="prefijo" Type="usmallint" Nullable="false" />
+          <Property Name="fecha" Type="datetime" Nullable="false" />
+          <Property Name="username" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="texto" Type="longtext" />
+          <Property Name="area" Type="uint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="historia_clinica_adultos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="n_expediente" Type="uint" Nullable="false" />
+          <Property Name="prefijo" Type="usmallint" Nullable="false" />
+          <Property Name="edad" Type="usmallint" Nullable="false" />
+          <Property Name="lateralidad" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="informante" Type="varchar" MaxLength="45" />
+          <Property Name="fecha" Type="datetime" Nullable="false" />
+          <Property Name="username" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="remitente" Type="varchar" MaxLength="45" />
+          <Property Name="texto" Type="longtext" />
+        </EntityType>
+        <EntityType Name="historia_clinica_pediatrica">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="n_expediente" Type="uint" Nullable="false" />
+          <Property Name="prefijo" Type="usmallint" Nullable="false" />
+          <Property Name="edad" Type="usmallint" Nullable="false" />
+          <Property Name="informante" Type="varchar" MaxLength="45" />
+          <Property Name="fecha" Type="datetime" Nullable="false" />
+          <Property Name="username" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="remitente" Type="varchar" MaxLength="45" />
+          <Property Name="texto" Type="longtext" />
+        </EntityType>
+        <EntityType Name="municipio">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="idDepto" Type="int" Nullable="false" />
+          <Property Name="nombre" Type="varchar" Nullable="false" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="ocupaciones">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ocupacion" Type="varchar" Nullable="false" MaxLength="125" />
+        </EntityType>
+        <EntityType Name="pacientes">
+          <Key>
+            <PropertyRef Name="expediente" />
+            <PropertyRef Name="prefijo" />
+          </Key>
+          <Property Name="expediente" Type="uint" Nullable="false" />
+          <Property Name="prefijo" Type="usmallint" Nullable="false" />
+          <Property Name="centro_actual" Type="usmallint" Nullable="false" />
+          <Property Name="fecha_ingreso" Type="date" Nullable="false" />
+          <Property Name="primer_apellido" Type="varchar" Nullable="false" MaxLength="15" />
+          <Property Name="segundo_apellido" Type="varchar" Nullable="false" MaxLength="15" />
+          <Property Name="nombres" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="cedula" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="tipo_doc_alterno" Type="varchar" MaxLength="25" />
+          <Property Name="numero_doc_alt" Type="varchar" MaxLength="45" />
+          <Property Name="estado_civil" Type="varchar" Nullable="false" MaxLength="15" />
+          <Property Name="sexo" Type="bool" Nullable="false" />
+          <Property Name="fecha_nac" Type="date" Nullable="false" />
+          <Property Name="lugar_nac" Type="varchar" MaxLength="45" />
+          <Property Name="direccion" Type="varchar" MaxLength="255" />
+          <Property Name="diagnostico" Type="uint" />
+          <Property Name="foto" Type="longblob" />
+          <Property Name="telefono_fijo" Type="varchar" MaxLength="15" />
+          <Property Name="telefono_movil" Type="varchar" MaxLength="15" />
+          <Property Name="nombre_padre" Type="varchar" MaxLength="45" />
+          <Property Name="nombre_madre" Type="varchar" MaxLength="45" />
+          <Property Name="estructura_familiar" Type="varchar" MaxLength="45" />
+          <Property Name="expectativa" Type="bool" />
+          <Property Name="observaciones" Type="varchar" MaxLength="100" />
+          <Property Name="escolaridad" Type="uint" Nullable="false" />
+          <Property Name="profesion" Type="uint" Nullable="false" />
+          <Property Name="lugar_trabajo" Type="varchar" MaxLength="45" />
+          <Property Name="nombre_conyugue" Type="varchar" MaxLength="45" />
+          <Property Name="activo" Type="bool" Nullable="false" />
+          <Property Name="nombre_familiar" Type="varchar" MaxLength="45" />
+          <Property Name="departamento" Type="int" />
+          <Property Name="municipio" Type="int" />
+        </EntityType>
+        <EntityType Name="parametros">
+          <Key>
+            <PropertyRef Name="nombre" />
+          </Key>
+          <Property Name="nombre" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="valor" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="permisos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="descripcion" Type="varchar" Nullable="false" MaxLength="95" />
+        </EntityType>
+        <EntityType Name="permisos_x_roles">
+          <Key>
+            <PropertyRef Name="permiso_id" />
+            <PropertyRef Name="rol_id" />
+          </Key>
+          <Property Name="permiso_id" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="rol_id" Type="uint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="procedencia">
+          <Key>
+            <PropertyRef Name="simbolo" />
+          </Key>
+          <Property Name="procedencia" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="simbolo" Type="char" Nullable="false" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="procedencia_descripcion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="id_procedencia" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="descripcion" Type="varchar" MaxLength="90" />
+        </EntityType>
+        <EntityType Name="productividad">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uint" Nullable="false" />
+          <Property Name="productividad" Type="varchar" Nullable="false" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="referencia">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uint" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" Nullable="false" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="roles">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="centro" Type="uint" />
+        </EntityType>
+        <EntityType Name="tipo_daño">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uint" Nullable="false" />
+          <Property Name="tipo" Type="varchar" Nullable="false" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="usuarios">
+          <Key>
+            <PropertyRef Name="username" />
+          </Key>
+          <Property Name="username" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="password" Type="char" Nullable="false" MaxLength="40" />
+          <Property Name="empleado" Type="uint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="usuarios_x_rol">
+          <Key>
+            <PropertyRef Name="username" />
+            <PropertyRef Name="id_rol" />
+          </Key>
+          <Property Name="username" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="id_rol" Type="uint" Nullable="false" />
+        </EntityType>
+        <Association Name="actividades_fk">
+          <End Role="actividades_enfermeria" Type="teletonModel.Store.actividades_enfermeria" Multiplicity="1" />
+          <End Role="atenciones_enfermeria" Type="teletonModel.Store.atenciones_enfermeria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="actividades_enfermeria">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="atenciones_enfermeria">
+              <PropertyRef Name="actividad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="atenciones_enfermeria_fk">
+          <End Role="pacientes" Type="teletonModel.Store.pacientes" Multiplicity="1" />
+          <End Role="atenciones_enfermeria" Type="teletonModel.Store.atenciones_enfermeria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pacientes">
+              <PropertyRef Name="expediente" />
+              <PropertyRef Name="prefijo" />
+            </Principal>
+            <Dependent Role="atenciones_enfermeria">
+              <PropertyRef Name="expediente" />
+              <PropertyRef Name="prefijo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="atenciones_enfermeria_fk1">
+          <End Role="usuarios" Type="teletonModel.Store.usuarios" Multiplicity="1" />
+          <End Role="atenciones_enfermeria" Type="teletonModel.Store.atenciones_enfermeria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuarios">
+              <PropertyRef Name="username" />
+            </Principal>
+            <Dependent Role="atenciones_enfermeria">
+              <PropertyRef Name="enfermera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="cargo_fk">
+          <End Role="cargos" Type="teletonModel.Store.cargos" Multiplicity="1" />
+          <End Role="empleados" Type="teletonModel.Store.empleados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cargos">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="empleados">
+              <PropertyRef Name="puesto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="citas_doctor_fk">
+          <End Role="usuarios" Type="teletonModel.Store.usuarios" Multiplicity="1" />
+          <End Role="citas_doctor" Type="teletonModel.Store.citas_doctor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuarios">
+              <PropertyRef Name="username" />
+            </Principal>
+            <Dependent Role="citas_doctor">
+              <PropertyRef Name="doctor_username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="citas_terapia_fk">
+          <End Role="pacientes" Type="teletonModel.Store.pacientes" Multiplicity="1" />
+          <End Role="citas_terapia" Type="teletonModel.Store.citas_terapia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pacientes">
+              <PropertyRef Name="expediente" />
+              <PropertyRef Name="prefijo" />
+            </Principal>
+            <Dependent Role="citas_terapia">
+              <PropertyRef Name="expediente" />
+              <PropertyRef Name="prefijo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="departamento_paciente_fk">
+          <End Role="departamento" Type="teletonModel.Store.departamento" Multiplicity="0..1" />
+          <End Role="pacientes" Type="teletonModel.Store.pacientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="departamento">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="pacientes">
+              <PropertyRef Name="departamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="diagnosticos_fk">
+          <End Role="diagnosticos" Type="teletonModel.Store.diagnosticos" Multiplicity="0..1" />
+          <End Role="evoluciones" Type="teletonModel.Store.evoluciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="diagnosticos">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="evoluciones">
+              <PropertyRef Name="id_diagnostico" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="diagnostico_FK">
+          <End Role="diagnosticos" Type="teletonModel.Store.diagnosticos" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="pacientes" Type="teletonModel.Store.pacientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="diagnosticos">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="pacientes">
+              <PropertyRef Name="diagnostico" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="empleado_fk">
+          <End Role="empleados" Type="teletonModel.Store.empleados" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="usuarios" Type="teletonModel.Store.usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="empleados">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="usuarios">
+              <PropertyRef Name="empleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="escoralidad_fk">
+          <End Role="escolaridad" Type="teletonModel.Store.escolaridad" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="pacientes" Type="teletonModel.Store.pacientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="escolaridad">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="pacientes">
+              <PropertyRef Name="escolaridad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="evaluador_fk">
+          <End Role="usuarios" Type="teletonModel.Store.usuarios" Multiplicity="1" />
+          <End Role="evoluciones" Type="teletonModel.Store.evoluciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuarios">
+              <PropertyRef Name="username" />
+            </Principal>
+            <Dependent Role="evoluciones">
+              <PropertyRef Name="evaluador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_area">
+          <End Role="areas" Type="teletonModel.Store.areas" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="historial" Type="teletonModel.Store.historial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="areas">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="historial">
+              <PropertyRef Name="area" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_area_2">
+          <End Role="areas" Type="teletonModel.Store.areas" Multiplicity="1" />
+          <End Role="altas_areas" Type="teletonModel.Store.altas_areas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="areas">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="altas_areas">
+              <PropertyRef Name="area" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ayudas_tecnicas">
+          <End Role="ayudas_tecnicas" Type="teletonModel.Store.ayudas_tecnicas" Multiplicity="1" />
+          <End Role="evoluciones" Type="teletonModel.Store.evoluciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ayudas_tecnicas">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="evoluciones">
+              <PropertyRef Name="id_ayudas_tecnicas" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_clasificacion">
+          <End Role="clasificacion_paciente" Type="teletonModel.Store.clasificacion_paciente" Multiplicity="1" />
+          <End Role="evoluciones" Type="teletonModel.Store.evoluciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="clasificacion_paciente">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="evoluciones">
+              <PropertyRef Name="id_clasificacion_paciente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_condicion">
+          <End Role="condicion" Type="teletonModel.Store.condicion" Multiplicity="1" />
+          <End Role="evoluciones" Type="teletonModel.Store.evoluciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="condicion">
+              <PropertyRef Name="simbolo" />
+            </Principal>
+            <Dependent Role="evoluciones">
+              <PropertyRef Name="id_condicion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_escolaridad">
+          <End Role="escolaridad" Type="teletonModel.Store.escolaridad" Multiplicity="1" />
+          <End Role="evoluciones" Type="teletonModel.Store.evoluciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="escolaridad">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="evoluciones">
+              <PropertyRef Name="id_escolaridad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_estado_alta">
+          <End Role="estado_alta" Type="teletonModel.Store.estado_alta" Multiplicity="1" />
+          <End Role="evoluciones" Type="teletonModel.Store.evoluciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estado_alta">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="evoluciones">
+              <PropertyRef Name="id_estado_alta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_n_expediente">
+          <End Role="pacientes" Type="teletonModel.Store.pacientes" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="historial" Type="teletonModel.Store.historial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pacientes">
+              <PropertyRef Name="expediente" />
+              <PropertyRef Name="prefijo" />
+            </Principal>
+            <Dependent Role="historial">
+              <PropertyRef Name="n_expediente" />
+              <PropertyRef Name="prefijo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_n_expediente_2">
+          <End Role="pacientes" Type="teletonModel.Store.pacientes" Multiplicity="1" />
+          <End Role="altas_areas" Type="teletonModel.Store.altas_areas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pacientes">
+              <PropertyRef Name="expediente" />
+              <PropertyRef Name="prefijo" />
+            </Principal>
+            <Dependent Role="altas_areas">
+              <PropertyRef Name="n_expediente" />
+              <PropertyRef Name="prefijo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_n_expediente_3">
+          <End Role="pacientes" Type="teletonModel.Store.pacientes" Multiplicity="1" />
+          <End Role="historia_clinica_adultos" Type="teletonModel.Store.historia_clinica_adultos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pacientes">
+              <PropertyRef Name="expediente" />
+              <PropertyRef Name="prefijo" />
+            </Principal>
+            <Dependent Role="historia_clinica_adultos">
+              <PropertyRef Name="n_expediente" />
+              <PropertyRef Name="prefijo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_n_expediente_4">
+          <End Role="pacientes" Type="teletonModel.Store.pacientes" Multiplicity="1" />
+          <End Role="historia_clinica_pediatrica" Type="teletonModel.Store.historia_clinica_pediatrica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pacientes">
+              <PropertyRef Name="expediente" />
+              <PropertyRef Name="prefijo" />
+            </Principal>
+            <Dependent Role="historia_clinica_pediatrica">
+              <PropertyRef Name="n_expediente" />
+              <PropertyRef Name="prefijo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_n_expediente_altas">
+          <End Role="pacientes" Type="teletonModel.Store.pacientes" Multiplicity="1" />
+          <End Role="altas" Type="teletonModel.Store.altas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pacientes">
+              <PropertyRef Name="expediente" />
+              <PropertyRef Name="prefijo" />
+            </Principal>
+            <Dependent Role="altas">
+              <PropertyRef Name="n_expediente" />
+              <PropertyRef Name="prefijo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ocupaciones">
+          <End Role="ocupaciones" Type="teletonModel.Store.ocupaciones" Multiplicity="1" />
+          <End Role="evoluciones" Type="teletonModel.Store.evoluciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ocupaciones">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="evoluciones">
+              <PropertyRef Name="id_ocupacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_procedencia">
+          <End Role="procedencia" Type="teletonModel.Store.procedencia" Multiplicity="1" />
+          <End Role="evoluciones" Type="teletonModel.Store.evoluciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="procedencia">
+              <PropertyRef Name="simbolo" />
+            </Principal>
+            <Dependent Role="evoluciones">
+              <PropertyRef Name="id_procedencia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_productividad">
+          <End Role="productividad" Type="teletonModel.Store.productividad" Multiplicity="1" />
+          <End Role="evoluciones" Type="teletonModel.Store.evoluciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="productividad">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="evoluciones">
+              <PropertyRef Name="id_productividad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_tipo_daño">
+          <End Role="tipo_daño" Type="teletonModel.Store.tipo_daño" Multiplicity="1" />
+          <End Role="evoluciones" Type="teletonModel.Store.evoluciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_daño">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="evoluciones">
+              <PropertyRef Name="id_tipo_daño" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_username">
+          <End Role="usuarios" Type="teletonModel.Store.usuarios" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="historial" Type="teletonModel.Store.historial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuarios">
+              <PropertyRef Name="username" />
+            </Principal>
+            <Dependent Role="historial">
+              <PropertyRef Name="username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_username_2">
+          <End Role="usuarios" Type="teletonModel.Store.usuarios" Multiplicity="1" />
+          <End Role="altas_areas" Type="teletonModel.Store.altas_areas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuarios">
+              <PropertyRef Name="username" />
+            </Principal>
+            <Dependent Role="altas_areas">
+              <PropertyRef Name="username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_username_3">
+          <End Role="usuarios" Type="teletonModel.Store.usuarios" Multiplicity="1" />
+          <End Role="historia_clinica_adultos" Type="teletonModel.Store.historia_clinica_adultos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuarios">
+              <PropertyRef Name="username" />
+            </Principal>
+            <Dependent Role="historia_clinica_adultos">
+              <PropertyRef Name="username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_username_4">
+          <End Role="usuarios" Type="teletonModel.Store.usuarios" Multiplicity="1" />
+          <End Role="historia_clinica_pediatrica" Type="teletonModel.Store.historia_clinica_pediatrica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuarios">
+              <PropertyRef Name="username" />
+            </Principal>
+            <Dependent Role="historia_clinica_pediatrica">
+              <PropertyRef Name="username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_username_altas">
+          <End Role="usuarios" Type="teletonModel.Store.usuarios" Multiplicity="1" />
+          <End Role="altas" Type="teletonModel.Store.altas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuarios">
+              <PropertyRef Name="username" />
+            </Principal>
+            <Dependent Role="altas">
+              <PropertyRef Name="username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="municipio_paciente_fk">
+          <End Role="municipio" Type="teletonModel.Store.municipio" Multiplicity="0..1" />
+          <End Role="pacientes" Type="teletonModel.Store.pacientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="municipio">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="pacientes">
+              <PropertyRef Name="municipio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="pacientes_fk">
+          <End Role="estado_civil" Type="teletonModel.Store.estado_civil" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="pacientes" Type="teletonModel.Store.pacientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estado_civil">
+              <PropertyRef Name="estado" />
+            </Principal>
+            <Dependent Role="pacientes">
+              <PropertyRef Name="estado_civil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="pacientes_fk1">
+          <End Role="pacientes" Type="teletonModel.Store.pacientes" Multiplicity="1" />
+          <End Role="evoluciones" Type="teletonModel.Store.evoluciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pacientes">
+              <PropertyRef Name="expediente" />
+              <PropertyRef Name="prefijo" />
+            </Principal>
+            <Dependent Role="evoluciones">
+              <PropertyRef Name="expediente" />
+              <PropertyRef Name="prefijo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="paciente_fk">
+          <End Role="pacientes" Type="teletonModel.Store.pacientes" Multiplicity="1" />
+          <End Role="citas_doctor" Type="teletonModel.Store.citas_doctor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pacientes">
+              <PropertyRef Name="expediente" />
+              <PropertyRef Name="prefijo" />
+            </Principal>
+            <Dependent Role="citas_doctor">
+              <PropertyRef Name="expediente" />
+              <PropertyRef Name="prefijo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="permisos_fk">
+          <End Role="permisos" Type="teletonModel.Store.permisos" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="permisos_x_roles" Type="teletonModel.Store.permisos_x_roles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="permisos">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="permisos_x_roles">
+              <PropertyRef Name="permiso_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="procedencia_fk">
+          <End Role="procedencia" Type="teletonModel.Store.procedencia" Multiplicity="1" />
+          <End Role="procedencia_descripcion" Type="teletonModel.Store.procedencia_descripcion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="procedencia">
+              <PropertyRef Name="simbolo" />
+            </Principal>
+            <Dependent Role="procedencia_descripcion">
+              <PropertyRef Name="id_procedencia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="profesion_fk">
+          <End Role="ocupaciones" Type="teletonModel.Store.ocupaciones" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="pacientes" Type="teletonModel.Store.pacientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ocupaciones">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="pacientes">
+              <PropertyRef Name="profesion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="roles_fk">
+          <End Role="roles" Type="teletonModel.Store.roles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="permisos_x_roles" Type="teletonModel.Store.permisos_x_roles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="roles">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="permisos_x_roles">
+              <PropertyRef Name="rol_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="roles_fk1">
+          <End Role="centros" Type="teletonModel.Store.centros" Multiplicity="0..1" />
+          <End Role="roles" Type="teletonModel.Store.roles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="centros">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="roles">
+              <PropertyRef Name="centro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="rol_fk">
+          <End Role="roles" Type="teletonModel.Store.roles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="usuarios_x_rol" Type="teletonModel.Store.usuarios_x_rol" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="roles">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="usuarios_x_rol">
+              <PropertyRef Name="id_rol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="usuarios_fk">
+          <End Role="usuarios" Type="teletonModel.Store.usuarios" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="usuarios_x_rol" Type="teletonModel.Store.usuarios_x_rol" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuarios">
+              <PropertyRef Name="username" />
+            </Principal>
+            <Dependent Role="usuarios_x_rol">
+              <PropertyRef Name="username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="usuario_fk">
+          <End Role="usuarios" Type="teletonModel.Store.usuarios" Multiplicity="1" />
+          <End Role="citas_terapia" Type="teletonModel.Store.citas_terapia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuarios">
+              <PropertyRef Name="username" />
+            </Principal>
+            <Dependent Role="citas_terapia">
+              <PropertyRef Name="user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="teletonModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="teletonEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="actividades_enfermeria" EntityType="teletonModel.actividades_enfermeria" />
+          <EntitySet Name="altas" EntityType="teletonModel.alta" />
+          <EntitySet Name="altas_areas" EntityType="teletonModel.altas_areas" />
+          <EntitySet Name="areas" EntityType="teletonModel.area" />
+          <EntitySet Name="atenciones_enfermeria" EntityType="teletonModel.atenciones_enfermeria" />
+          <EntitySet Name="ayudas_tecnicas" EntityType="teletonModel.ayudas_tecnicas" />
+          <EntitySet Name="cargos" EntityType="teletonModel.cargo" />
+          <EntitySet Name="centros" EntityType="teletonModel.centro" />
+          <EntitySet Name="citas_doctor" EntityType="teletonModel.citas_doctor" />
+          <EntitySet Name="citas_terapia" EntityType="teletonModel.citas_terapia" />
+          <EntitySet Name="clasificacion_paciente" EntityType="teletonModel.clasificacion_paciente" />
+          <EntitySet Name="condicions" EntityType="teletonModel.condicion" />
+          <EntitySet Name="departamentoes" EntityType="teletonModel.departamento" />
+          <EntitySet Name="diagnosticos" EntityType="teletonModel.diagnostico" />
+          <EntitySet Name="dxes" EntityType="teletonModel.dx" />
+          <EntitySet Name="empleados" EntityType="teletonModel.empleado" />
+          <EntitySet Name="escolaridads" EntityType="teletonModel.escolaridad" />
+          <EntitySet Name="estado_alta" EntityType="teletonModel.estado_alta" />
+          <EntitySet Name="estado_civil" EntityType="teletonModel.estado_civil" />
+          <EntitySet Name="evoluciones" EntityType="teletonModel.evolucione" />
+          <EntitySet Name="historials" EntityType="teletonModel.historial" />
+          <EntitySet Name="historia_clinica_adultos" EntityType="teletonModel.historia_clinica_adultos" />
+          <EntitySet Name="historia_clinica_pediatrica" EntityType="teletonModel.historia_clinica_pediatrica" />
+          <EntitySet Name="municipios" EntityType="teletonModel.municipio" />
+          <EntitySet Name="ocupaciones" EntityType="teletonModel.ocupacione" />
+          <EntitySet Name="pacientes" EntityType="teletonModel.paciente" />
+          <EntitySet Name="parametros" EntityType="teletonModel.parametro" />
+          <EntitySet Name="permisos" EntityType="teletonModel.permiso" />
+          <EntitySet Name="procedencias" EntityType="teletonModel.procedencia" />
+          <EntitySet Name="procedencia_descripcion" EntityType="teletonModel.procedencia_descripcion" />
+          <EntitySet Name="productividads" EntityType="teletonModel.productividad" />
+          <EntitySet Name="referencias" EntityType="teletonModel.referencia" />
+          <EntitySet Name="roles" EntityType="teletonModel.role" />
+          <EntitySet Name="tipo_daño" EntityType="teletonModel.tipo_daño" />
+          <EntitySet Name="usuarios" EntityType="teletonModel.usuario" />
+          <AssociationSet Name="actividades_fk" Association="teletonModel.actividades_fk">
+            <End Role="actividades_enfermeria" EntitySet="actividades_enfermeria" />
+            <End Role="atenciones_enfermeria" EntitySet="atenciones_enfermeria" />
+          </AssociationSet>
+          <AssociationSet Name="fk_n_expediente_altas" Association="teletonModel.fk_n_expediente_altas">
+            <End Role="pacientes" EntitySet="pacientes" />
+            <End Role="altas" EntitySet="altas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_username_altas" Association="teletonModel.fk_username_altas">
+            <End Role="usuarios" EntitySet="usuarios" />
+            <End Role="altas" EntitySet="altas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_area_2" Association="teletonModel.fk_area_2">
+            <End Role="areas" EntitySet="areas" />
+            <End Role="altas_areas" EntitySet="altas_areas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_n_expediente_2" Association="teletonModel.fk_n_expediente_2">
+            <End Role="pacientes" EntitySet="pacientes" />
+            <End Role="altas_areas" EntitySet="altas_areas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_username_2" Association="teletonModel.fk_username_2">
+            <End Role="usuarios" EntitySet="usuarios" />
+            <End Role="altas_areas" EntitySet="altas_areas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_area" Association="teletonModel.fk_area">
+            <End Role="areas" EntitySet="areas" />
+            <End Role="historial" EntitySet="historials" />
+          </AssociationSet>
+          <AssociationSet Name="atenciones_enfermeria_fk" Association="teletonModel.atenciones_enfermeria_fk">
+            <End Role="pacientes" EntitySet="pacientes" />
+            <End Role="atenciones_enfermeria" EntitySet="atenciones_enfermeria" />
+          </AssociationSet>
+          <AssociationSet Name="atenciones_enfermeria_fk1" Association="teletonModel.atenciones_enfermeria_fk1">
+            <End Role="usuarios" EntitySet="usuarios" />
+            <End Role="atenciones_enfermeria" EntitySet="atenciones_enfermeria" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ayudas_tecnicas" Association="teletonModel.fk_ayudas_tecnicas">
+            <End Role="ayudas_tecnicas" EntitySet="ayudas_tecnicas" />
+            <End Role="evoluciones" EntitySet="evoluciones" />
+          </AssociationSet>
+          <AssociationSet Name="cargo_fk" Association="teletonModel.cargo_fk">
+            <End Role="cargos" EntitySet="cargos" />
+            <End Role="empleados" EntitySet="empleados" />
+          </AssociationSet>
+          <AssociationSet Name="roles_fk1" Association="teletonModel.roles_fk1">
+            <End Role="centros" EntitySet="centros" />
+            <End Role="roles" EntitySet="roles" />
+          </AssociationSet>
+          <AssociationSet Name="citas_doctor_fk" Association="teletonModel.citas_doctor_fk">
+            <End Role="usuarios" EntitySet="usuarios" />
+            <End Role="citas_doctor" EntitySet="citas_doctor" />
+          </AssociationSet>
+          <AssociationSet Name="paciente_fk" Association="teletonModel.paciente_fk">
+            <End Role="pacientes" EntitySet="pacientes" />
+            <End Role="citas_doctor" EntitySet="citas_doctor" />
+          </AssociationSet>
+          <AssociationSet Name="citas_terapia_fk" Association="teletonModel.citas_terapia_fk">
+            <End Role="pacientes" EntitySet="pacientes" />
+            <End Role="citas_terapia" EntitySet="citas_terapia" />
+          </AssociationSet>
+          <AssociationSet Name="usuario_fk" Association="teletonModel.usuario_fk">
+            <End Role="usuarios" EntitySet="usuarios" />
+            <End Role="citas_terapia" EntitySet="citas_terapia" />
+          </AssociationSet>
+          <AssociationSet Name="fk_clasificacion" Association="teletonModel.fk_clasificacion">
+            <End Role="clasificacion_paciente" EntitySet="clasificacion_paciente" />
+            <End Role="evoluciones" EntitySet="evoluciones" />
+          </AssociationSet>
+          <AssociationSet Name="fk_condicion" Association="teletonModel.fk_condicion">
+            <End Role="condicion" EntitySet="condicions" />
+            <End Role="evoluciones" EntitySet="evoluciones" />
+          </AssociationSet>
+          <AssociationSet Name="departamento_paciente_fk" Association="teletonModel.departamento_paciente_fk">
+            <End Role="departamento" EntitySet="departamentoes" />
+            <End Role="pacientes" EntitySet="pacientes" />
+          </AssociationSet>
+          <AssociationSet Name="diagnosticos_fk" Association="teletonModel.diagnosticos_fk">
+            <End Role="diagnosticos" EntitySet="diagnosticos" />
+            <End Role="evoluciones" EntitySet="evoluciones" />
+          </AssociationSet>
+          <AssociationSet Name="diagnostico_FK" Association="teletonModel.diagnostico_FK">
+            <End Role="diagnosticos" EntitySet="diagnosticos" />
+            <End Role="pacientes" EntitySet="pacientes" />
+          </AssociationSet>
+          <AssociationSet Name="empleado_fk" Association="teletonModel.empleado_fk">
+            <End Role="empleados" EntitySet="empleados" />
+            <End Role="usuarios" EntitySet="usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="escoralidad_fk" Association="teletonModel.escoralidad_fk">
+            <End Role="escolaridad" EntitySet="escolaridads" />
+            <End Role="pacientes" EntitySet="pacientes" />
+          </AssociationSet>
+          <AssociationSet Name="fk_escolaridad" Association="teletonModel.fk_escolaridad">
+            <End Role="escolaridad" EntitySet="escolaridads" />
+            <End Role="evoluciones" EntitySet="evoluciones" />
+          </AssociationSet>
+          <AssociationSet Name="fk_estado_alta" Association="teletonModel.fk_estado_alta">
+            <End Role="estado_alta" EntitySet="estado_alta" />
+            <End Role="evoluciones" EntitySet="evoluciones" />
+          </AssociationSet>
+          <AssociationSet Name="pacientes_fk" Association="teletonModel.pacientes_fk">
+            <End Role="estado_civil" EntitySet="estado_civil" />
+            <End Role="pacientes" EntitySet="pacientes" />
+          </AssociationSet>
+          <AssociationSet Name="evaluador_fk" Association="teletonModel.evaluador_fk">
+            <End Role="usuarios" EntitySet="usuarios" />
+            <End Role="evoluciones" EntitySet="evoluciones" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ocupaciones" Association="teletonModel.fk_ocupaciones">
+            <End Role="ocupaciones" EntitySet="ocupaciones" />
+            <End Role="evoluciones" EntitySet="evoluciones" />
+          </AssociationSet>
+          <AssociationSet Name="fk_procedencia" Association="teletonModel.fk_procedencia">
+            <End Role="procedencia" EntitySet="procedencias" />
+            <End Role="evoluciones" EntitySet="evoluciones" />
+          </AssociationSet>
+          <AssociationSet Name="fk_productividad" Association="teletonModel.fk_productividad">
+            <End Role="productividad" EntitySet="productividads" />
+            <End Role="evoluciones" EntitySet="evoluciones" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tipo_daño" Association="teletonModel.fk_tipo_daño">
+            <End Role="tipo_daño" EntitySet="tipo_daño" />
+            <End Role="evoluciones" EntitySet="evoluciones" />
+          </AssociationSet>
+          <AssociationSet Name="pacientes_fk1" Association="teletonModel.pacientes_fk1">
+            <End Role="pacientes" EntitySet="pacientes" />
+            <End Role="evoluciones" EntitySet="evoluciones" />
+          </AssociationSet>
+          <AssociationSet Name="fk_n_expediente" Association="teletonModel.fk_n_expediente">
+            <End Role="pacientes" EntitySet="pacientes" />
+            <End Role="historial" EntitySet="historials" />
+          </AssociationSet>
+          <AssociationSet Name="fk_username" Association="teletonModel.fk_username">
+            <End Role="usuarios" EntitySet="usuarios" />
+            <End Role="historial" EntitySet="historials" />
+          </AssociationSet>
+          <AssociationSet Name="fk_n_expediente_3" Association="teletonModel.fk_n_expediente_3">
+            <End Role="pacientes" EntitySet="pacientes" />
+            <End Role="historia_clinica_adultos" EntitySet="historia_clinica_adultos" />
+          </AssociationSet>
+          <AssociationSet Name="fk_username_3" Association="teletonModel.fk_username_3">
+            <End Role="usuarios" EntitySet="usuarios" />
+            <End Role="historia_clinica_adultos" EntitySet="historia_clinica_adultos" />
+          </AssociationSet>
+          <AssociationSet Name="fk_n_expediente_4" Association="teletonModel.fk_n_expediente_4">
+            <End Role="pacientes" EntitySet="pacientes" />
+            <End Role="historia_clinica_pediatrica" EntitySet="historia_clinica_pediatrica" />
+          </AssociationSet>
+          <AssociationSet Name="fk_username_4" Association="teletonModel.fk_username_4">
+            <End Role="usuarios" EntitySet="usuarios" />
+            <End Role="historia_clinica_pediatrica" EntitySet="historia_clinica_pediatrica" />
+          </AssociationSet>
+          <AssociationSet Name="municipio_paciente_fk" Association="teletonModel.municipio_paciente_fk">
+            <End Role="municipio" EntitySet="municipios" />
+            <End Role="pacientes" EntitySet="pacientes" />
+          </AssociationSet>
+          <AssociationSet Name="profesion_fk" Association="teletonModel.profesion_fk">
+            <End Role="ocupaciones" EntitySet="ocupaciones" />
+            <End Role="pacientes" EntitySet="pacientes" />
+          </AssociationSet>
+          <AssociationSet Name="procedencia_fk" Association="teletonModel.procedencia_fk">
+            <End Role="procedencia" EntitySet="procedencias" />
+            <End Role="procedencia_descripcion" EntitySet="procedencia_descripcion" />
+          </AssociationSet>
+          <AssociationSet Name="permisos_x_roles" Association="teletonModel.permisos_x_roles">
+            <End Role="permisos" EntitySet="permisos" />
+            <End Role="roles" EntitySet="roles" />
+          </AssociationSet>
+          <AssociationSet Name="usuarios_x_rol" Association="teletonModel.usuarios_x_rol">
+            <End Role="roles" EntitySet="roles" />
+            <End Role="usuarios" EntitySet="usuarios" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="actividades_enfermeria">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="actividad" Type="String" Nullable="false" />
+          <NavigationProperty Name="atenciones_enfermeria" Relationship="teletonModel.actividades_fk" FromRole="actividades_enfermeria" ToRole="atenciones_enfermeria" />
+        </EntityType>
+        <EntityType Name="alta">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="n_expediente" Type="Int64" Nullable="false" />
+          <Property Name="prefijo" Type="Int32" Nullable="false" />
+          <Property Name="fecha" Type="DateTime" Nullable="false" />
+          <Property Name="username" Type="String" Nullable="false" />
+          <Property Name="texto" Type="String" />
+          <NavigationProperty Name="paciente" Relationship="teletonModel.fk_n_expediente_altas" FromRole="altas" ToRole="pacientes" />
+          <NavigationProperty Name="usuario" Relationship="teletonModel.fk_username_altas" FromRole="altas" ToRole="usuarios" />
+        </EntityType>
+        <EntityType Name="altas_areas">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="n_expediente" Type="Int64" Nullable="false" />
+          <Property Name="prefijo" Type="Int32" Nullable="false" />
+          <Property Name="fecha" Type="DateTime" Nullable="false" />
+          <Property Name="username" Type="String" Nullable="false" />
+          <Property Name="texto" Type="String" />
+          <Property Name="area" Type="Int64" Nullable="false" />
+          <Property Name="alta" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="area1" Relationship="teletonModel.fk_area_2" FromRole="altas_areas" ToRole="areas" />
+          <NavigationProperty Name="paciente" Relationship="teletonModel.fk_n_expediente_2" FromRole="altas_areas" ToRole="pacientes" />
+          <NavigationProperty Name="usuario" Relationship="teletonModel.fk_username_2" FromRole="altas_areas" ToRole="usuarios" />
+        </EntityType>
+        <EntityType Name="area">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="area1" Type="String" Nullable="false" />
+          <Property Name="orden" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="altas_areas" Relationship="teletonModel.fk_area_2" FromRole="areas" ToRole="altas_areas" />
+          <NavigationProperty Name="historials" Relationship="teletonModel.fk_area" FromRole="areas" ToRole="historial" />
+        </EntityType>
+        <EntityType Name="atenciones_enfermeria">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="enfermera" Type="String" Nullable="false" />
+          <Property Name="prefijo" Type="Int32" Nullable="false" />
+          <Property Name="expediente" Type="Int64" Nullable="false" />
+          <Property Name="fecha" Type="DateTime" Nullable="false" />
+          <Property Name="actividad" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="actividades_enfermeria" Relationship="teletonModel.actividades_fk" FromRole="atenciones_enfermeria" ToRole="actividades_enfermeria" />
+          <NavigationProperty Name="paciente" Relationship="teletonModel.atenciones_enfermeria_fk" FromRole="atenciones_enfermeria" ToRole="pacientes" />
+          <NavigationProperty Name="usuario" Relationship="teletonModel.atenciones_enfermeria_fk1" FromRole="atenciones_enfermeria" ToRole="usuarios" />
+        </EntityType>
+        <EntityType Name="ayudas_tecnicas">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" />
+          <Property Name="ayuda" Type="String" Nullable="false" />
+          <NavigationProperty Name="evoluciones" Relationship="teletonModel.fk_ayudas_tecnicas" FromRole="ayudas_tecnicas" ToRole="evoluciones" />
+        </EntityType>
+        <EntityType Name="cargo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cargo1" Type="String" Nullable="false" />
+          <NavigationProperty Name="empleados" Relationship="teletonModel.cargo_fk" FromRole="cargos" ToRole="empleados" />
+        </EntityType>
+        <EntityType Name="centro">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="lugar" Type="String" Nullable="false" />
+          <Property Name="siguiente_expediente" Type="Decimal" Nullable="false" />
+          <NavigationProperty Name="roles" Relationship="teletonModel.roles_fk1" FromRole="centros" ToRole="roles" />
+        </EntityType>
+        <EntityType Name="citas_doctor">
+          <Key>
+            <PropertyRef Name="doctor_username" />
+            <PropertyRef Name="fecha_hora" />
+          </Key>
+          <Property Name="doctor_username" Type="String" Nullable="false" />
+          <Property Name="prefijo" Type="Int32" Nullable="false" />
+          <Property Name="expediente" Type="Int64" Nullable="false" />
+          <Property Name="fecha_hora" Type="DateTime" Nullable="false" />
+          <Property Name="tipo" Type="String" Nullable="false" />
+          <NavigationProperty Name="usuario" Relationship="teletonModel.citas_doctor_fk" FromRole="citas_doctor" ToRole="usuarios" />
+          <NavigationProperty Name="paciente" Relationship="teletonModel.paciente_fk" FromRole="citas_doctor" ToRole="pacientes" />
+        </EntityType>
+        <EntityType Name="citas_terapia">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user" Type="String" Nullable="false" />
+          <Property Name="prefijo" Type="Int32" Nullable="false" />
+          <Property Name="expediente" Type="Int64" Nullable="false" />
+          <Property Name="fecha" Type="DateTime" Nullable="false" />
+          <Property Name="hora_inicio" Type="Time" Nullable="false" />
+          <Property Name="hora_final" Type="Time" Nullable="false" />
+          <Property Name="atendido" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="paciente" Relationship="teletonModel.citas_terapia_fk" FromRole="citas_terapia" ToRole="pacientes" />
+          <NavigationProperty Name="usuario" Relationship="teletonModel.usuario_fk" FromRole="citas_terapia" ToRole="usuarios" />
+        </EntityType>
+        <EntityType Name="clasificacion_paciente">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" />
+          <Property Name="clasificacion" Type="String" Nullable="false" />
+          <NavigationProperty Name="evoluciones" Relationship="teletonModel.fk_clasificacion" FromRole="clasificacion_paciente" ToRole="evoluciones" />
+        </EntityType>
+        <EntityType Name="condicion">
+          <Key>
+            <PropertyRef Name="simbolo" />
+          </Key>
+          <Property Name="condicion1" Type="String" Nullable="false" />
+          <Property Name="simbolo" Type="String" Nullable="false" />
+          <NavigationProperty Name="evoluciones" Relationship="teletonModel.fk_condicion" FromRole="condicion" ToRole="evoluciones" />
+        </EntityType>
+        <EntityType Name="departamento">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" Nullable="false" />
+          <NavigationProperty Name="pacientes" Relationship="teletonModel.departamento_paciente_fk" FromRole="departamento" ToRole="pacientes" />
+        </EntityType>
+        <EntityType Name="diagnostico">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="diagnostico1" Type="String" Nullable="false" />
+          <Property Name="codigoInter" Type="String" />
+          <NavigationProperty Name="evoluciones" Relationship="teletonModel.diagnosticos_fk" FromRole="diagnosticos" ToRole="evoluciones" />
+          <NavigationProperty Name="pacientes" Relationship="teletonModel.diagnostico_FK" FromRole="diagnosticos" ToRole="pacientes" />
+        </EntityType>
+        <EntityType Name="dx">
+          <Key>
+            <PropertyRef Name="simbolo" />
+          </Key>
+          <Property Name="dx1" Type="String" Nullable="false" />
+          <Property Name="simbolo" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="empleado">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="primer_apellido" Type="String" Nullable="false" />
+          <Property Name="segundo_apellido" Type="String" Nullable="false" />
+          <Property Name="nombres" Type="String" Nullable="false" />
+          <Property Name="puesto" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="cargo" Relationship="teletonModel.cargo_fk" FromRole="empleados" ToRole="cargos" />
+          <NavigationProperty Name="usuarios" Relationship="teletonModel.empleado_fk" FromRole="empleados" ToRole="usuarios" />
+        </EntityType>
+        <EntityType Name="escolaridad">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" />
+          <Property Name="Grado" Type="String" />
+          <NavigationProperty Name="pacientes" Relationship="teletonModel.escoralidad_fk" FromRole="escolaridad" ToRole="pacientes" />
+          <NavigationProperty Name="evoluciones" Relationship="teletonModel.fk_escolaridad" FromRole="escolaridad" ToRole="evoluciones" />
+        </EntityType>
+        <EntityType Name="estado_alta">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" />
+          <Property Name="estado" Type="String" Nullable="false" />
+          <NavigationProperty Name="evoluciones" Relationship="teletonModel.fk_estado_alta" FromRole="estado_alta" ToRole="evoluciones" />
+        </EntityType>
+        <EntityType Name="estado_civil">
+          <Key>
+            <PropertyRef Name="estado" />
+          </Key>
+          <Property Name="estado" Type="String" Nullable="false" />
+          <NavigationProperty Name="pacientes" Relationship="teletonModel.pacientes_fk" FromRole="estado_civil" ToRole="pacientes" />
+        </EntityType>
+        <EntityType Name="evolucione">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Decimal" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fecha" Type="DateTime" Nullable="false" />
+          <Property Name="prefijo" Type="Int32" Nullable="false" />
+          <Property Name="expediente" Type="Int64" Nullable="false" />
+          <Property Name="id_diagnostico" Type="Int64" />
+          <Property Name="evaluador" Type="String" Nullable="false" />
+          <Property Name="notas" Type="String" Nullable="false" />
+          <Property Name="id_procedencia" Type="String" Nullable="false" />
+          <Property Name="id_escolaridad" Type="Int64" Nullable="false" />
+          <Property Name="id_ocupacion" Type="Int64" Nullable="false" />
+          <Property Name="id_clasificacion_paciente" Type="Int64" Nullable="false" />
+          <Property Name="id_condicion" Type="String" Nullable="false" />
+          <Property Name="eteologia" Type="String" />
+          <Property Name="id_tipo_daño" Type="Int64" Nullable="false" />
+          <Property Name="funcion_estructura" Type="String" />
+          <Property Name="años_tiempo_discapacidad" Type="Int64" />
+          <Property Name="meses_tiempo_discapacidad" Type="Int64" />
+          <Property Name="dias_tiempo_discapacidad" Type="Int64" />
+          <Property Name="años_TSTDL" Type="Int64" />
+          <Property Name="meses_TSTDL" Type="Int64" />
+          <Property Name="dias_TSTDL" Type="Int64" />
+          <Property Name="id_ayudas_tecnicas" Type="Int64" Nullable="false" />
+          <Property Name="id_estado_alta" Type="Int64" Nullable="false" />
+          <Property Name="id_productividad" Type="Int64" Nullable="false" />
+          <Property Name="actividades_participacion" Type="String" />
+          <NavigationProperty Name="ayudas_tecnicas" Relationship="teletonModel.fk_ayudas_tecnicas" FromRole="evoluciones" ToRole="ayudas_tecnicas" />
+          <NavigationProperty Name="clasificacion_paciente" Relationship="teletonModel.fk_clasificacion" FromRole="evoluciones" ToRole="clasificacion_paciente" />
+          <NavigationProperty Name="condicion" Relationship="teletonModel.fk_condicion" FromRole="evoluciones" ToRole="condicion" />
+          <NavigationProperty Name="diagnostico" Relationship="teletonModel.diagnosticos_fk" FromRole="evoluciones" ToRole="diagnosticos" />
+          <NavigationProperty Name="escolaridad" Relationship="teletonModel.fk_escolaridad" FromRole="evoluciones" ToRole="escolaridad" />
+          <NavigationProperty Name="estado_alta" Relationship="teletonModel.fk_estado_alta" FromRole="evoluciones" ToRole="estado_alta" />
+          <NavigationProperty Name="usuario" Relationship="teletonModel.evaluador_fk" FromRole="evoluciones" ToRole="usuarios" />
+          <NavigationProperty Name="ocupacione" Relationship="teletonModel.fk_ocupaciones" FromRole="evoluciones" ToRole="ocupaciones" />
+          <NavigationProperty Name="procedencia" Relationship="teletonModel.fk_procedencia" FromRole="evoluciones" ToRole="procedencia" />
+          <NavigationProperty Name="productividad" Relationship="teletonModel.fk_productividad" FromRole="evoluciones" ToRole="productividad" />
+          <NavigationProperty Name="tipo_daño" Relationship="teletonModel.fk_tipo_daño" FromRole="evoluciones" ToRole="tipo_daño" />
+          <NavigationProperty Name="paciente" Relationship="teletonModel.pacientes_fk1" FromRole="evoluciones" ToRole="pacientes" />
+        </EntityType>
+        <EntityType Name="historial">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="n_expediente" Type="Int64" Nullable="false" />
+          <Property Name="prefijo" Type="Int32" Nullable="false" />
+          <Property Name="fecha" Type="DateTime" Nullable="false" />
+          <Property Name="username" Type="String" Nullable="false" />
+          <Property Name="texto" Type="String" />
+          <Property Name="area" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="area1" Relationship="teletonModel.fk_area" FromRole="historial" ToRole="areas" />
+          <NavigationProperty Name="paciente" Relationship="teletonModel.fk_n_expediente" FromRole="historial" ToRole="pacientes" />
+          <NavigationProperty Name="usuario" Relationship="teletonModel.fk_username" FromRole="historial" ToRole="usuarios" />
+        </EntityType>
+        <EntityType Name="historia_clinica_adultos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="n_expediente" Type="Int64" Nullable="false" />
+          <Property Name="prefijo" Type="Int32" Nullable="false" />
+          <Property Name="edad" Type="Int32" Nullable="false" />
+          <Property Name="lateralidad" Type="String" Nullable="false" />
+          <Property Name="informante" Type="String" />
+          <Property Name="fecha" Type="DateTime" Nullable="false" />
+          <Property Name="username" Type="String" Nullable="false" />
+          <Property Name="remitente" Type="String" />
+          <Property Name="texto" Type="String" />
+          <NavigationProperty Name="paciente" Relationship="teletonModel.fk_n_expediente_3" FromRole="historia_clinica_adultos" ToRole="pacientes" />
+          <NavigationProperty Name="usuario" Relationship="teletonModel.fk_username_3" FromRole="historia_clinica_adultos" ToRole="usuarios" />
+        </EntityType>
+        <EntityType Name="historia_clinica_pediatrica">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="n_expediente" Type="Int64" Nullable="false" />
+          <Property Name="prefijo" Type="Int32" Nullable="false" />
+          <Property Name="edad" Type="Int32" Nullable="false" />
+          <Property Name="informante" Type="String" />
+          <Property Name="fecha" Type="DateTime" Nullable="false" />
+          <Property Name="username" Type="String" Nullable="false" />
+          <Property Name="remitente" Type="String" />
+          <Property Name="texto" Type="String" />
+          <NavigationProperty Name="paciente" Relationship="teletonModel.fk_n_expediente_4" FromRole="historia_clinica_pediatrica" ToRole="pacientes" />
+          <NavigationProperty Name="usuario" Relationship="teletonModel.fk_username_4" FromRole="historia_clinica_pediatrica" ToRole="usuarios" />
+        </EntityType>
+        <EntityType Name="municipio">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idDepto" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" Nullable="false" />
+          <NavigationProperty Name="pacientes" Relationship="teletonModel.municipio_paciente_fk" FromRole="municipio" ToRole="pacientes" />
+        </EntityType>
+        <EntityType Name="ocupacione">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ocupacion" Type="String" Nullable="false" />
+          <NavigationProperty Name="evoluciones" Relationship="teletonModel.fk_ocupaciones" FromRole="ocupaciones" ToRole="evoluciones" />
+          <NavigationProperty Name="pacientes" Relationship="teletonModel.profesion_fk" FromRole="ocupaciones" ToRole="pacientes" />
+        </EntityType>
+        <EntityType Name="paciente">
+          <Key>
+            <PropertyRef Name="expediente" />
+            <PropertyRef Name="prefijo" />
+          </Key>
+          <Property Name="expediente" Type="Int64" Nullable="false" />
+          <Property Name="prefijo" Type="Int32" Nullable="false" />
+          <Property Name="centro_actual" Type="Int32" Nullable="false" />
+          <Property Name="fecha_ingreso" Type="DateTime" Nullable="false" />
+          <Property Name="primer_apellido" Type="String" Nullable="false" />
+          <Property Name="segundo_apellido" Type="String" Nullable="false" />
+          <Property Name="nombres" Type="String" Nullable="false" />
+          <Property Name="cedula" Type="String" Nullable="false" />
+          <Property Name="tipo_doc_alterno" Type="String" />
+          <Property Name="numero_doc_alt" Type="String" />
+          <Property Name="estado_civil" Type="String" Nullable="false" />
+          <Property Name="sexo" Type="Boolean" Nullable="false" />
+          <Property Name="fecha_nac" Type="DateTime" Nullable="false" />
+          <Property Name="lugar_nac" Type="String" />
+          <Property Name="direccion" Type="String" />
+          <Property Name="diagnostico" Type="Int64" />
+          <Property Name="foto" Type="Binary" />
+          <Property Name="telefono_fijo" Type="String" />
+          <Property Name="telefono_movil" Type="String" />
+          <Property Name="nombre_padre" Type="String" />
+          <Property Name="nombre_madre" Type="String" />
+          <Property Name="estructura_familiar" Type="String" />
+          <Property Name="expectativa" Type="Boolean" />
+          <Property Name="observaciones" Type="String" />
+          <Property Name="escolaridad" Type="Int64" Nullable="false" />
+          <Property Name="profesion" Type="Int64" Nullable="false" />
+          <Property Name="lugar_trabajo" Type="String" />
+          <Property Name="nombre_conyugue" Type="String" />
+          <Property Name="activo" Type="Boolean" Nullable="false" />
+          <Property Name="nombre_familiar" Type="String" />
+          <Property Name="departamento" Type="Int32" />
+          <Property Name="municipio" Type="Int32" />
+          <NavigationProperty Name="altas" Relationship="teletonModel.fk_n_expediente_altas" FromRole="pacientes" ToRole="altas" />
+          <NavigationProperty Name="altas_areas" Relationship="teletonModel.fk_n_expediente_2" FromRole="pacientes" ToRole="altas_areas" />
+          <NavigationProperty Name="atenciones_enfermeria" Relationship="teletonModel.atenciones_enfermeria_fk" FromRole="pacientes" ToRole="atenciones_enfermeria" />
+          <NavigationProperty Name="citas_doctor" Relationship="teletonModel.paciente_fk" FromRole="pacientes" ToRole="citas_doctor" />
+          <NavigationProperty Name="citas_terapia" Relationship="teletonModel.citas_terapia_fk" FromRole="pacientes" ToRole="citas_terapia" />
+          <NavigationProperty Name="departamento1" Relationship="teletonModel.departamento_paciente_fk" FromRole="pacientes" ToRole="departamento" />
+          <NavigationProperty Name="diagnostico1" Relationship="teletonModel.diagnostico_FK" FromRole="pacientes" ToRole="diagnosticos" />
+          <NavigationProperty Name="escolaridad1" Relationship="teletonModel.escoralidad_fk" FromRole="pacientes" ToRole="escolaridad" />
+          <NavigationProperty Name="estado_civil1" Relationship="teletonModel.pacientes_fk" FromRole="pacientes" ToRole="estado_civil" />
+          <NavigationProperty Name="evoluciones" Relationship="teletonModel.pacientes_fk1" FromRole="pacientes" ToRole="evoluciones" />
+          <NavigationProperty Name="historials" Relationship="teletonModel.fk_n_expediente" FromRole="pacientes" ToRole="historial" />
+          <NavigationProperty Name="historia_clinica_adultos" Relationship="teletonModel.fk_n_expediente_3" FromRole="pacientes" ToRole="historia_clinica_adultos" />
+          <NavigationProperty Name="historia_clinica_pediatrica" Relationship="teletonModel.fk_n_expediente_4" FromRole="pacientes" ToRole="historia_clinica_pediatrica" />
+          <NavigationProperty Name="municipio1" Relationship="teletonModel.municipio_paciente_fk" FromRole="pacientes" ToRole="municipio" />
+          <NavigationProperty Name="ocupacione" Relationship="teletonModel.profesion_fk" FromRole="pacientes" ToRole="ocupaciones" />
+        </EntityType>
+        <EntityType Name="parametro">
+          <Key>
+            <PropertyRef Name="nombre" />
+          </Key>
+          <Property Name="nombre" Type="String" Nullable="false" />
+          <Property Name="valor" Type="String" />
+        </EntityType>
+        <EntityType Name="permiso">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" />
+          <Property Name="descripcion" Type="String" Nullable="false" />
+          <NavigationProperty Name="roles" Relationship="teletonModel.permisos_x_roles" FromRole="permisos" ToRole="roles" />
+        </EntityType>
+        <EntityType Name="procedencia">
+          <Key>
+            <PropertyRef Name="simbolo" />
+          </Key>
+          <Property Name="procedencia1" Type="String" Nullable="false" />
+          <Property Name="simbolo" Type="String" Nullable="false" />
+          <NavigationProperty Name="evoluciones" Relationship="teletonModel.fk_procedencia" FromRole="procedencia" ToRole="evoluciones" />
+          <NavigationProperty Name="procedencia_descripcion" Relationship="teletonModel.procedencia_fk" FromRole="procedencia" ToRole="procedencia_descripcion" />
+        </EntityType>
+        <EntityType Name="procedencia_descripcion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_procedencia" Type="String" Nullable="false" />
+          <Property Name="descripcion" Type="String" />
+          <NavigationProperty Name="procedencia" Relationship="teletonModel.procedencia_fk" FromRole="procedencia_descripcion" ToRole="procedencia" />
+        </EntityType>
+        <EntityType Name="productividad">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" />
+          <Property Name="productividad1" Type="String" Nullable="false" />
+          <NavigationProperty Name="evoluciones" Relationship="teletonModel.fk_productividad" FromRole="productividad" ToRole="evoluciones" />
+        </EntityType>
+        <EntityType Name="referencia">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" />
+          <Property Name="descripcion" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="role">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" Nullable="false" />
+          <Property Name="centro" Type="Int64" />
+          <NavigationProperty Name="centro1" Relationship="teletonModel.roles_fk1" FromRole="roles" ToRole="centros" />
+          <NavigationProperty Name="permisos" Relationship="teletonModel.permisos_x_roles" FromRole="roles" ToRole="permisos" />
+          <NavigationProperty Name="usuarios" Relationship="teletonModel.usuarios_x_rol" FromRole="roles" ToRole="usuarios" />
+        </EntityType>
+        <EntityType Name="tipo_daño">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" />
+          <Property Name="tipo" Type="String" Nullable="false" />
+          <NavigationProperty Name="evoluciones" Relationship="teletonModel.fk_tipo_daño" FromRole="tipo_daño" ToRole="evoluciones" />
+        </EntityType>
+        <EntityType Name="usuario">
+          <Key>
+            <PropertyRef Name="username" />
+          </Key>
+          <Property Name="username" Type="String" Nullable="false" />
+          <Property Name="password" Type="String" Nullable="false" />
+          <Property Name="empleado" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="altas" Relationship="teletonModel.fk_username_altas" FromRole="usuarios" ToRole="altas" />
+          <NavigationProperty Name="altas_areas" Relationship="teletonModel.fk_username_2" FromRole="usuarios" ToRole="altas_areas" />
+          <NavigationProperty Name="atenciones_enfermeria" Relationship="teletonModel.atenciones_enfermeria_fk1" FromRole="usuarios" ToRole="atenciones_enfermeria" />
+          <NavigationProperty Name="citas_doctor" Relationship="teletonModel.citas_doctor_fk" FromRole="usuarios" ToRole="citas_doctor" />
+          <NavigationProperty Name="citas_terapia" Relationship="teletonModel.usuario_fk" FromRole="usuarios" ToRole="citas_terapia" />
+          <NavigationProperty Name="empleado1" Relationship="teletonModel.empleado_fk" FromRole="usuarios" ToRole="empleados" />
+          <NavigationProperty Name="evoluciones" Relationship="teletonModel.evaluador_fk" FromRole="usuarios" ToRole="evoluciones" />
+          <NavigationProperty Name="historials" Relationship="teletonModel.fk_username" FromRole="usuarios" ToRole="historial" />
+          <NavigationProperty Name="historia_clinica_adultos" Relationship="teletonModel.fk_username_3" FromRole="usuarios" ToRole="historia_clinica_adultos" />
+          <NavigationProperty Name="historia_clinica_pediatrica" Relationship="teletonModel.fk_username_4" FromRole="usuarios" ToRole="historia_clinica_pediatrica" />
+          <NavigationProperty Name="roles" Relationship="teletonModel.usuarios_x_rol" FromRole="usuarios" ToRole="roles" />
+        </EntityType>
+        <Association Name="actividades_fk">
+          <End Role="actividades_enfermeria" Type="teletonModel.actividades_enfermeria" Multiplicity="1" />
+          <End Role="atenciones_enfermeria" Type="teletonModel.atenciones_enfermeria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="actividades_enfermeria">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="atenciones_enfermeria">
+              <PropertyRef Name="actividad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_n_expediente_altas">
+          <End Role="pacientes" Type="teletonModel.paciente" Multiplicity="1" />
+          <End Role="altas" Type="teletonModel.alta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pacientes">
+              <PropertyRef Name="expediente" />
+              <PropertyRef Name="prefijo" />
+            </Principal>
+            <Dependent Role="altas">
+              <PropertyRef Name="n_expediente" />
+              <PropertyRef Name="prefijo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_username_altas">
+          <End Role="usuarios" Type="teletonModel.usuario" Multiplicity="1" />
+          <End Role="altas" Type="teletonModel.alta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuarios">
+              <PropertyRef Name="username" />
+            </Principal>
+            <Dependent Role="altas">
+              <PropertyRef Name="username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_area_2">
+          <End Role="areas" Type="teletonModel.area" Multiplicity="1" />
+          <End Role="altas_areas" Type="teletonModel.altas_areas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="areas">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="altas_areas">
+              <PropertyRef Name="area" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_n_expediente_2">
+          <End Role="pacientes" Type="teletonModel.paciente" Multiplicity="1" />
+          <End Role="altas_areas" Type="teletonModel.altas_areas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pacientes">
+              <PropertyRef Name="expediente" />
+              <PropertyRef Name="prefijo" />
+            </Principal>
+            <Dependent Role="altas_areas">
+              <PropertyRef Name="n_expediente" />
+              <PropertyRef Name="prefijo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_username_2">
+          <End Role="usuarios" Type="teletonModel.usuario" Multiplicity="1" />
+          <End Role="altas_areas" Type="teletonModel.altas_areas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuarios">
+              <PropertyRef Name="username" />
+            </Principal>
+            <Dependent Role="altas_areas">
+              <PropertyRef Name="username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_area">
+          <End Role="areas" Type="teletonModel.area" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="historial" Type="teletonModel.historial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="areas">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="historial">
+              <PropertyRef Name="area" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="atenciones_enfermeria_fk">
+          <End Role="pacientes" Type="teletonModel.paciente" Multiplicity="1" />
+          <End Role="atenciones_enfermeria" Type="teletonModel.atenciones_enfermeria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pacientes">
+              <PropertyRef Name="expediente" />
+              <PropertyRef Name="prefijo" />
+            </Principal>
+            <Dependent Role="atenciones_enfermeria">
+              <PropertyRef Name="expediente" />
+              <PropertyRef Name="prefijo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="atenciones_enfermeria_fk1">
+          <End Role="usuarios" Type="teletonModel.usuario" Multiplicity="1" />
+          <End Role="atenciones_enfermeria" Type="teletonModel.atenciones_enfermeria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuarios">
+              <PropertyRef Name="username" />
+            </Principal>
+            <Dependent Role="atenciones_enfermeria">
+              <PropertyRef Name="enfermera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ayudas_tecnicas">
+          <End Role="ayudas_tecnicas" Type="teletonModel.ayudas_tecnicas" Multiplicity="1" />
+          <End Role="evoluciones" Type="teletonModel.evolucione" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ayudas_tecnicas">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="evoluciones">
+              <PropertyRef Name="id_ayudas_tecnicas" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="cargo_fk">
+          <End Role="cargos" Type="teletonModel.cargo" Multiplicity="1" />
+          <End Role="empleados" Type="teletonModel.empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cargos">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="empleados">
+              <PropertyRef Name="puesto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="roles_fk1">
+          <End Role="centros" Type="teletonModel.centro" Multiplicity="0..1" />
+          <End Role="roles" Type="teletonModel.role" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="centros">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="roles">
+              <PropertyRef Name="centro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="citas_doctor_fk">
+          <End Role="usuarios" Type="teletonModel.usuario" Multiplicity="1" />
+          <End Role="citas_doctor" Type="teletonModel.citas_doctor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuarios">
+              <PropertyRef Name="username" />
+            </Principal>
+            <Dependent Role="citas_doctor">
+              <PropertyRef Name="doctor_username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="paciente_fk">
+          <End Role="pacientes" Type="teletonModel.paciente" Multiplicity="1" />
+          <End Role="citas_doctor" Type="teletonModel.citas_doctor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pacientes">
+              <PropertyRef Name="expediente" />
+              <PropertyRef Name="prefijo" />
+            </Principal>
+            <Dependent Role="citas_doctor">
+              <PropertyRef Name="expediente" />
+              <PropertyRef Name="prefijo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="citas_terapia_fk">
+          <End Role="pacientes" Type="teletonModel.paciente" Multiplicity="1" />
+          <End Role="citas_terapia" Type="teletonModel.citas_terapia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pacientes">
+              <PropertyRef Name="expediente" />
+              <PropertyRef Name="prefijo" />
+            </Principal>
+            <Dependent Role="citas_terapia">
+              <PropertyRef Name="expediente" />
+              <PropertyRef Name="prefijo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="usuario_fk">
+          <End Role="usuarios" Type="teletonModel.usuario" Multiplicity="1" />
+          <End Role="citas_terapia" Type="teletonModel.citas_terapia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuarios">
+              <PropertyRef Name="username" />
+            </Principal>
+            <Dependent Role="citas_terapia">
+              <PropertyRef Name="user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_clasificacion">
+          <End Role="clasificacion_paciente" Type="teletonModel.clasificacion_paciente" Multiplicity="1" />
+          <End Role="evoluciones" Type="teletonModel.evolucione" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="clasificacion_paciente">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="evoluciones">
+              <PropertyRef Name="id_clasificacion_paciente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_condicion">
+          <End Role="condicion" Type="teletonModel.condicion" Multiplicity="1" />
+          <End Role="evoluciones" Type="teletonModel.evolucione" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="condicion">
+              <PropertyRef Name="simbolo" />
+            </Principal>
+            <Dependent Role="evoluciones">
+              <PropertyRef Name="id_condicion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="departamento_paciente_fk">
+          <End Role="departamento" Type="teletonModel.departamento" Multiplicity="0..1" />
+          <End Role="pacientes" Type="teletonModel.paciente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="departamento">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="pacientes">
+              <PropertyRef Name="departamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="diagnosticos_fk">
+          <End Role="diagnosticos" Type="teletonModel.diagnostico" Multiplicity="0..1" />
+          <End Role="evoluciones" Type="teletonModel.evolucione" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="diagnosticos">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="evoluciones">
+              <PropertyRef Name="id_diagnostico" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="diagnostico_FK">
+          <End Role="diagnosticos" Type="teletonModel.diagnostico" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="pacientes" Type="teletonModel.paciente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="diagnosticos">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="pacientes">
+              <PropertyRef Name="diagnostico" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="empleado_fk">
+          <End Role="empleados" Type="teletonModel.empleado" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="usuarios" Type="teletonModel.usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="empleados">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="usuarios">
+              <PropertyRef Name="empleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="escoralidad_fk">
+          <End Role="escolaridad" Type="teletonModel.escolaridad" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="pacientes" Type="teletonModel.paciente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="escolaridad">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="pacientes">
+              <PropertyRef Name="escolaridad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_escolaridad">
+          <End Role="escolaridad" Type="teletonModel.escolaridad" Multiplicity="1" />
+          <End Role="evoluciones" Type="teletonModel.evolucione" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="escolaridad">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="evoluciones">
+              <PropertyRef Name="id_escolaridad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_estado_alta">
+          <End Role="estado_alta" Type="teletonModel.estado_alta" Multiplicity="1" />
+          <End Role="evoluciones" Type="teletonModel.evolucione" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estado_alta">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="evoluciones">
+              <PropertyRef Name="id_estado_alta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="pacientes_fk">
+          <End Role="estado_civil" Type="teletonModel.estado_civil" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="pacientes" Type="teletonModel.paciente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estado_civil">
+              <PropertyRef Name="estado" />
+            </Principal>
+            <Dependent Role="pacientes">
+              <PropertyRef Name="estado_civil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="evaluador_fk">
+          <End Role="usuarios" Type="teletonModel.usuario" Multiplicity="1" />
+          <End Role="evoluciones" Type="teletonModel.evolucione" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuarios">
+              <PropertyRef Name="username" />
+            </Principal>
+            <Dependent Role="evoluciones">
+              <PropertyRef Name="evaluador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ocupaciones">
+          <End Role="ocupaciones" Type="teletonModel.ocupacione" Multiplicity="1" />
+          <End Role="evoluciones" Type="teletonModel.evolucione" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ocupaciones">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="evoluciones">
+              <PropertyRef Name="id_ocupacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_procedencia">
+          <End Role="procedencia" Type="teletonModel.procedencia" Multiplicity="1" />
+          <End Role="evoluciones" Type="teletonModel.evolucione" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="procedencia">
+              <PropertyRef Name="simbolo" />
+            </Principal>
+            <Dependent Role="evoluciones">
+              <PropertyRef Name="id_procedencia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_productividad">
+          <End Role="productividad" Type="teletonModel.productividad" Multiplicity="1" />
+          <End Role="evoluciones" Type="teletonModel.evolucione" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="productividad">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="evoluciones">
+              <PropertyRef Name="id_productividad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_tipo_daño">
+          <End Role="tipo_daño" Type="teletonModel.tipo_daño" Multiplicity="1" />
+          <End Role="evoluciones" Type="teletonModel.evolucione" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_daño">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="evoluciones">
+              <PropertyRef Name="id_tipo_daño" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="pacientes_fk1">
+          <End Role="pacientes" Type="teletonModel.paciente" Multiplicity="1" />
+          <End Role="evoluciones" Type="teletonModel.evolucione" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pacientes">
+              <PropertyRef Name="expediente" />
+              <PropertyRef Name="prefijo" />
+            </Principal>
+            <Dependent Role="evoluciones">
+              <PropertyRef Name="expediente" />
+              <PropertyRef Name="prefijo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_n_expediente">
+          <End Role="pacientes" Type="teletonModel.paciente" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="historial" Type="teletonModel.historial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pacientes">
+              <PropertyRef Name="expediente" />
+              <PropertyRef Name="prefijo" />
+            </Principal>
+            <Dependent Role="historial">
+              <PropertyRef Name="n_expediente" />
+              <PropertyRef Name="prefijo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_username">
+          <End Role="usuarios" Type="teletonModel.usuario" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="historial" Type="teletonModel.historial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuarios">
+              <PropertyRef Name="username" />
+            </Principal>
+            <Dependent Role="historial">
+              <PropertyRef Name="username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_n_expediente_3">
+          <End Role="pacientes" Type="teletonModel.paciente" Multiplicity="1" />
+          <End Role="historia_clinica_adultos" Type="teletonModel.historia_clinica_adultos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pacientes">
+              <PropertyRef Name="expediente" />
+              <PropertyRef Name="prefijo" />
+            </Principal>
+            <Dependent Role="historia_clinica_adultos">
+              <PropertyRef Name="n_expediente" />
+              <PropertyRef Name="prefijo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_username_3">
+          <End Role="usuarios" Type="teletonModel.usuario" Multiplicity="1" />
+          <End Role="historia_clinica_adultos" Type="teletonModel.historia_clinica_adultos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuarios">
+              <PropertyRef Name="username" />
+            </Principal>
+            <Dependent Role="historia_clinica_adultos">
+              <PropertyRef Name="username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_n_expediente_4">
+          <End Role="pacientes" Type="teletonModel.paciente" Multiplicity="1" />
+          <End Role="historia_clinica_pediatrica" Type="teletonModel.historia_clinica_pediatrica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pacientes">
+              <PropertyRef Name="expediente" />
+              <PropertyRef Name="prefijo" />
+            </Principal>
+            <Dependent Role="historia_clinica_pediatrica">
+              <PropertyRef Name="n_expediente" />
+              <PropertyRef Name="prefijo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_username_4">
+          <End Role="usuarios" Type="teletonModel.usuario" Multiplicity="1" />
+          <End Role="historia_clinica_pediatrica" Type="teletonModel.historia_clinica_pediatrica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuarios">
+              <PropertyRef Name="username" />
+            </Principal>
+            <Dependent Role="historia_clinica_pediatrica">
+              <PropertyRef Name="username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="municipio_paciente_fk">
+          <End Role="municipio" Type="teletonModel.municipio" Multiplicity="0..1" />
+          <End Role="pacientes" Type="teletonModel.paciente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="municipio">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="pacientes">
+              <PropertyRef Name="municipio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="profesion_fk">
+          <End Role="ocupaciones" Type="teletonModel.ocupacione" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="pacientes" Type="teletonModel.paciente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ocupaciones">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="pacientes">
+              <PropertyRef Name="profesion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="procedencia_fk">
+          <End Role="procedencia" Type="teletonModel.procedencia" Multiplicity="1" />
+          <End Role="procedencia_descripcion" Type="teletonModel.procedencia_descripcion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="procedencia">
+              <PropertyRef Name="simbolo" />
+            </Principal>
+            <Dependent Role="procedencia_descripcion">
+              <PropertyRef Name="id_procedencia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="permisos_x_roles">
+          <End Role="permisos" Type="teletonModel.permiso" Multiplicity="*" />
+          <End Role="roles" Type="teletonModel.role" Multiplicity="*" />
+        </Association>
+        <Association Name="usuarios_x_rol">
+          <End Role="roles" Type="teletonModel.role" Multiplicity="*" />
+          <End Role="usuarios" Type="teletonModel.usuario" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="teletonModelStoreContainer" CdmEntityContainer="teletonEntities">
+          <EntitySetMapping Name="actividades_enfermeria"><EntityTypeMapping TypeName="teletonModel.actividades_enfermeria"><MappingFragment StoreEntitySet="actividades_enfermeria">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="actividad" ColumnName="actividad" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="altas"><EntityTypeMapping TypeName="teletonModel.alta"><MappingFragment StoreEntitySet="altas">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="n_expediente" ColumnName="n_expediente" />
+            <ScalarProperty Name="prefijo" ColumnName="prefijo" />
+            <ScalarProperty Name="fecha" ColumnName="fecha" />
+            <ScalarProperty Name="username" ColumnName="username" />
+            <ScalarProperty Name="texto" ColumnName="texto" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="altas_areas"><EntityTypeMapping TypeName="teletonModel.altas_areas"><MappingFragment StoreEntitySet="altas_areas">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="n_expediente" ColumnName="n_expediente" />
+            <ScalarProperty Name="prefijo" ColumnName="prefijo" />
+            <ScalarProperty Name="fecha" ColumnName="fecha" />
+            <ScalarProperty Name="username" ColumnName="username" />
+            <ScalarProperty Name="texto" ColumnName="texto" />
+            <ScalarProperty Name="area" ColumnName="area" />
+            <ScalarProperty Name="alta" ColumnName="alta" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="areas"><EntityTypeMapping TypeName="teletonModel.area"><MappingFragment StoreEntitySet="areas">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="area1" ColumnName="area" />
+            <ScalarProperty Name="orden" ColumnName="orden" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="atenciones_enfermeria"><EntityTypeMapping TypeName="teletonModel.atenciones_enfermeria"><MappingFragment StoreEntitySet="atenciones_enfermeria">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="enfermera" ColumnName="enfermera" />
+            <ScalarProperty Name="prefijo" ColumnName="prefijo" />
+            <ScalarProperty Name="expediente" ColumnName="expediente" />
+            <ScalarProperty Name="fecha" ColumnName="fecha" />
+            <ScalarProperty Name="actividad" ColumnName="actividad" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="ayudas_tecnicas"><EntityTypeMapping TypeName="teletonModel.ayudas_tecnicas"><MappingFragment StoreEntitySet="ayudas_tecnicas">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="ayuda" ColumnName="ayuda" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="cargos"><EntityTypeMapping TypeName="teletonModel.cargo"><MappingFragment StoreEntitySet="cargos">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="cargo1" ColumnName="cargo" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="centros"><EntityTypeMapping TypeName="teletonModel.centro"><MappingFragment StoreEntitySet="centros">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="lugar" ColumnName="lugar" />
+            <ScalarProperty Name="siguiente_expediente" ColumnName="siguiente_expediente" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="citas_doctor"><EntityTypeMapping TypeName="teletonModel.citas_doctor"><MappingFragment StoreEntitySet="citas_doctor">
+            <ScalarProperty Name="doctor_username" ColumnName="doctor_username" />
+            <ScalarProperty Name="prefijo" ColumnName="prefijo" />
+            <ScalarProperty Name="expediente" ColumnName="expediente" />
+            <ScalarProperty Name="fecha_hora" ColumnName="fecha_hora" />
+            <ScalarProperty Name="tipo" ColumnName="tipo" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="citas_terapia"><EntityTypeMapping TypeName="teletonModel.citas_terapia"><MappingFragment StoreEntitySet="citas_terapia">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="user" ColumnName="user" />
+            <ScalarProperty Name="prefijo" ColumnName="prefijo" />
+            <ScalarProperty Name="expediente" ColumnName="expediente" />
+            <ScalarProperty Name="fecha" ColumnName="fecha" />
+            <ScalarProperty Name="hora_inicio" ColumnName="hora_inicio" />
+            <ScalarProperty Name="hora_final" ColumnName="hora_final" />
+            <ScalarProperty Name="atendido" ColumnName="atendido" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="clasificacion_paciente"><EntityTypeMapping TypeName="teletonModel.clasificacion_paciente"><MappingFragment StoreEntitySet="clasificacion_paciente">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="clasificacion" ColumnName="clasificacion" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="condicions"><EntityTypeMapping TypeName="teletonModel.condicion"><MappingFragment StoreEntitySet="condicion">
+            <ScalarProperty Name="condicion1" ColumnName="condicion" />
+            <ScalarProperty Name="simbolo" ColumnName="simbolo" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="departamentoes"><EntityTypeMapping TypeName="teletonModel.departamento"><MappingFragment StoreEntitySet="departamento">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="nombre" ColumnName="nombre" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="diagnosticos"><EntityTypeMapping TypeName="teletonModel.diagnostico"><MappingFragment StoreEntitySet="diagnosticos">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="diagnostico1" ColumnName="diagnostico" />
+            <ScalarProperty Name="codigoInter" ColumnName="codigoInter" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="dxes"><EntityTypeMapping TypeName="teletonModel.dx"><MappingFragment StoreEntitySet="dx">
+            <ScalarProperty Name="dx1" ColumnName="dx" />
+            <ScalarProperty Name="simbolo" ColumnName="simbolo" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="empleados"><EntityTypeMapping TypeName="teletonModel.empleado"><MappingFragment StoreEntitySet="empleados">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="primer_apellido" ColumnName="primer_apellido" />
+            <ScalarProperty Name="segundo_apellido" ColumnName="segundo_apellido" />
+            <ScalarProperty Name="nombres" ColumnName="nombres" />
+            <ScalarProperty Name="puesto" ColumnName="puesto" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="escolaridads"><EntityTypeMapping TypeName="teletonModel.escolaridad"><MappingFragment StoreEntitySet="escolaridad">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="Grado" ColumnName="Grado" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="estado_alta"><EntityTypeMapping TypeName="teletonModel.estado_alta"><MappingFragment StoreEntitySet="estado_alta">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="estado" ColumnName="estado" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="estado_civil"><EntityTypeMapping TypeName="teletonModel.estado_civil"><MappingFragment StoreEntitySet="estado_civil">
+            <ScalarProperty Name="estado" ColumnName="estado" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="evoluciones"><EntityTypeMapping TypeName="teletonModel.evolucione"><MappingFragment StoreEntitySet="evoluciones">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="fecha" ColumnName="fecha" />
+            <ScalarProperty Name="prefijo" ColumnName="prefijo" />
+            <ScalarProperty Name="expediente" ColumnName="expediente" />
+            <ScalarProperty Name="id_diagnostico" ColumnName="id_diagnostico" />
+            <ScalarProperty Name="evaluador" ColumnName="evaluador" />
+            <ScalarProperty Name="notas" ColumnName="notas" />
+            <ScalarProperty Name="id_procedencia" ColumnName="id_procedencia" />
+            <ScalarProperty Name="id_escolaridad" ColumnName="id_escolaridad" />
+            <ScalarProperty Name="id_ocupacion" ColumnName="id_ocupacion" />
+            <ScalarProperty Name="id_clasificacion_paciente" ColumnName="id_clasificacion_paciente" />
+            <ScalarProperty Name="id_condicion" ColumnName="id_condicion" />
+            <ScalarProperty Name="eteologia" ColumnName="eteologia" />
+            <ScalarProperty Name="id_tipo_daño" ColumnName="id_tipo_daño" />
+            <ScalarProperty Name="funcion_estructura" ColumnName="funcion_estructura" />
+            <ScalarProperty Name="años_tiempo_discapacidad" ColumnName="años_tiempo_discapacidad" />
+            <ScalarProperty Name="meses_tiempo_discapacidad" ColumnName="meses_tiempo_discapacidad" />
+            <ScalarProperty Name="dias_tiempo_discapacidad" ColumnName="dias_tiempo_discapacidad" />
+            <ScalarProperty Name="años_TSTDL" ColumnName="años_TSTDL" />
+            <ScalarProperty Name="meses_TSTDL" ColumnName="meses_TSTDL" />
+            <ScalarProperty Name="dias_TSTDL" ColumnName="dias_TSTDL" />
+            <ScalarProperty Name="id_ayudas_tecnicas" ColumnName="id_ayudas_tecnicas" />
+            <ScalarProperty Name="id_estado_alta" ColumnName="id_estado_alta" />
+            <ScalarProperty Name="id_productividad" ColumnName="id_productividad" />
+            <ScalarProperty Name="actividades_participacion" ColumnName="actividades_participacion" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="historials"><EntityTypeMapping TypeName="teletonModel.historial"><MappingFragment StoreEntitySet="historial">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="n_expediente" ColumnName="n_expediente" />
+            <ScalarProperty Name="prefijo" ColumnName="prefijo" />
+            <ScalarProperty Name="fecha" ColumnName="fecha" />
+            <ScalarProperty Name="username" ColumnName="username" />
+            <ScalarProperty Name="texto" ColumnName="texto" />
+            <ScalarProperty Name="area" ColumnName="area" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="historia_clinica_adultos"><EntityTypeMapping TypeName="teletonModel.historia_clinica_adultos"><MappingFragment StoreEntitySet="historia_clinica_adultos">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="n_expediente" ColumnName="n_expediente" />
+            <ScalarProperty Name="prefijo" ColumnName="prefijo" />
+            <ScalarProperty Name="edad" ColumnName="edad" />
+            <ScalarProperty Name="lateralidad" ColumnName="lateralidad" />
+            <ScalarProperty Name="informante" ColumnName="informante" />
+            <ScalarProperty Name="fecha" ColumnName="fecha" />
+            <ScalarProperty Name="username" ColumnName="username" />
+            <ScalarProperty Name="remitente" ColumnName="remitente" />
+            <ScalarProperty Name="texto" ColumnName="texto" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="historia_clinica_pediatrica"><EntityTypeMapping TypeName="teletonModel.historia_clinica_pediatrica"><MappingFragment StoreEntitySet="historia_clinica_pediatrica">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="n_expediente" ColumnName="n_expediente" />
+            <ScalarProperty Name="prefijo" ColumnName="prefijo" />
+            <ScalarProperty Name="edad" ColumnName="edad" />
+            <ScalarProperty Name="informante" ColumnName="informante" />
+            <ScalarProperty Name="fecha" ColumnName="fecha" />
+            <ScalarProperty Name="username" ColumnName="username" />
+            <ScalarProperty Name="remitente" ColumnName="remitente" />
+            <ScalarProperty Name="texto" ColumnName="texto" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="municipios"><EntityTypeMapping TypeName="teletonModel.municipio"><MappingFragment StoreEntitySet="municipio">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="idDepto" ColumnName="idDepto" />
+            <ScalarProperty Name="nombre" ColumnName="nombre" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="ocupaciones"><EntityTypeMapping TypeName="teletonModel.ocupacione"><MappingFragment StoreEntitySet="ocupaciones">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="ocupacion" ColumnName="ocupacion" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="pacientes"><EntityTypeMapping TypeName="teletonModel.paciente"><MappingFragment StoreEntitySet="pacientes">
+            <ScalarProperty Name="expediente" ColumnName="expediente" />
+            <ScalarProperty Name="prefijo" ColumnName="prefijo" />
+            <ScalarProperty Name="centro_actual" ColumnName="centro_actual" />
+            <ScalarProperty Name="fecha_ingreso" ColumnName="fecha_ingreso" />
+            <ScalarProperty Name="primer_apellido" ColumnName="primer_apellido" />
+            <ScalarProperty Name="segundo_apellido" ColumnName="segundo_apellido" />
+            <ScalarProperty Name="nombres" ColumnName="nombres" />
+            <ScalarProperty Name="cedula" ColumnName="cedula" />
+            <ScalarProperty Name="tipo_doc_alterno" ColumnName="tipo_doc_alterno" />
+            <ScalarProperty Name="numero_doc_alt" ColumnName="numero_doc_alt" />
+            <ScalarProperty Name="estado_civil" ColumnName="estado_civil" />
+            <ScalarProperty Name="sexo" ColumnName="sexo" />
+            <ScalarProperty Name="fecha_nac" ColumnName="fecha_nac" />
+            <ScalarProperty Name="lugar_nac" ColumnName="lugar_nac" />
+            <ScalarProperty Name="direccion" ColumnName="direccion" />
+            <ScalarProperty Name="diagnostico" ColumnName="diagnostico" />
+            <ScalarProperty Name="foto" ColumnName="foto" />
+            <ScalarProperty Name="telefono_fijo" ColumnName="telefono_fijo" />
+            <ScalarProperty Name="telefono_movil" ColumnName="telefono_movil" />
+            <ScalarProperty Name="nombre_padre" ColumnName="nombre_padre" />
+            <ScalarProperty Name="nombre_madre" ColumnName="nombre_madre" />
+            <ScalarProperty Name="estructura_familiar" ColumnName="estructura_familiar" />
+            <ScalarProperty Name="expectativa" ColumnName="expectativa" />
+            <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+            <ScalarProperty Name="escolaridad" ColumnName="escolaridad" />
+            <ScalarProperty Name="profesion" ColumnName="profesion" />
+            <ScalarProperty Name="lugar_trabajo" ColumnName="lugar_trabajo" />
+            <ScalarProperty Name="nombre_conyugue" ColumnName="nombre_conyugue" />
+            <ScalarProperty Name="activo" ColumnName="activo" />
+            <ScalarProperty Name="nombre_familiar" ColumnName="nombre_familiar" />
+            <ScalarProperty Name="departamento" ColumnName="departamento" />
+            <ScalarProperty Name="municipio" ColumnName="municipio" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="parametros"><EntityTypeMapping TypeName="teletonModel.parametro"><MappingFragment StoreEntitySet="parametros">
+            <ScalarProperty Name="nombre" ColumnName="nombre" />
+            <ScalarProperty Name="valor" ColumnName="valor" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="permisos"><EntityTypeMapping TypeName="teletonModel.permiso"><MappingFragment StoreEntitySet="permisos">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="procedencias"><EntityTypeMapping TypeName="teletonModel.procedencia"><MappingFragment StoreEntitySet="procedencia">
+            <ScalarProperty Name="procedencia1" ColumnName="procedencia" />
+            <ScalarProperty Name="simbolo" ColumnName="simbolo" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="procedencia_descripcion"><EntityTypeMapping TypeName="teletonModel.procedencia_descripcion"><MappingFragment StoreEntitySet="procedencia_descripcion">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="id_procedencia" ColumnName="id_procedencia" />
+            <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="productividads"><EntityTypeMapping TypeName="teletonModel.productividad"><MappingFragment StoreEntitySet="productividad">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="productividad1" ColumnName="productividad" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="referencias"><EntityTypeMapping TypeName="teletonModel.referencia"><MappingFragment StoreEntitySet="referencia">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="roles"><EntityTypeMapping TypeName="teletonModel.role"><MappingFragment StoreEntitySet="roles">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+            <ScalarProperty Name="centro" ColumnName="centro" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="tipo_daño"><EntityTypeMapping TypeName="teletonModel.tipo_daño"><MappingFragment StoreEntitySet="tipo_daño">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="tipo" ColumnName="tipo" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="usuarios"><EntityTypeMapping TypeName="teletonModel.usuario"><MappingFragment StoreEntitySet="usuarios">
+            <ScalarProperty Name="username" ColumnName="username" />
+            <ScalarProperty Name="password" ColumnName="password" />
+            <ScalarProperty Name="empleado" ColumnName="empleado" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <AssociationSetMapping Name="permisos_x_roles" TypeName="teletonModel.permisos_x_roles" StoreEntitySet="permisos_x_roles">
+            <EndProperty Name="permisos">
+              <ScalarProperty Name="id" ColumnName="permiso_id" />
+            </EndProperty>
+            <EndProperty Name="roles">
+              <ScalarProperty Name="id" ColumnName="rol_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="usuarios_x_rol" TypeName="teletonModel.usuarios_x_rol" StoreEntitySet="usuarios_x_rol">
+            <EndProperty Name="roles">
+              <ScalarProperty Name="id" ColumnName="id_rol" />
+            </EndProperty>
+            <EndProperty Name="usuarios">
+              <ScalarProperty Name="username" ColumnName="username" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="EntityModel">
+        <EntityTypeShape EntityType="teletonModel.actividades_enfermeria" Width="1.5" PointX="6" PointY="13.5" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="teletonModel.alta" Width="1.5" PointX="8.25" PointY="20" Height="2.5571907552083317" IsExpanded="true" />
+        <EntityTypeShape EntityType="teletonModel.altas_areas" Width="1.5" PointX="11.25" PointY="19.75" Height="3.1340950520833317" IsExpanded="true" />
+        <EntityTypeShape EntityType="teletonModel.area" Width="1.5" PointX="9" PointY="27.375" Height="1.9802864583333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="teletonModel.atenciones_enfermeria" Width="1.5" PointX="8.25" PointY="16" Height="2.7494921875000014" IsExpanded="true" />
+        <EntityTypeShape EntityType="teletonModel.ayudas_tecnicas" Width="1.5" PointX="0.75" PointY="3.375" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="teletonModel.cargo" Width="1.5" PointX="1.5" PointY="38.375" Height="1.595683593749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="teletonModel.centro" Width="1.5" PointX="1.5" PointY="45.125" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="teletonModel.citas_doctor" Width="1.5" PointX="8.25" PointY="24.125" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="teletonModel.citas_terapia" Width="1.5" PointX="11.25" PointY="15.875" Height="2.9417936197916674" IsExpanded="true" />
+        <EntityTypeShape EntityType="teletonModel.clasificacion_paciente" Width="1.5" PointX="0.75" PointY="5.75" Height="1.5956835937500031" IsExpanded="true" />
+        <EntityTypeShape EntityType="teletonModel.condicion" Width="1.5" PointX="0.75" PointY="8" Height="1.5956835937500031" IsExpanded="true" />
+        <EntityTypeShape EntityType="teletonModel.departamento" Width="1.5" PointX="3.75" PointY="14.125" Height="1.5956835937500031" IsExpanded="true" />
+        <EntityTypeShape EntityType="teletonModel.diagnostico" Width="1.5" PointX="0.75" PointY="20.375" Height="1.9802864583333388" IsExpanded="true" />
+        <EntityTypeShape EntityType="teletonModel.dx" Width="1.5" PointX="0.75" PointY="0.75" Height="1.4033821614583388" IsExpanded="true" />
+        <EntityTypeShape EntityType="teletonModel.empleado" Width="1.5" PointX="1.5" PointY="35" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="teletonModel.escolaridad" Width="1.5" PointX="0.75" PointY="10.375" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="teletonModel.estado_alta" Width="1.5" PointX="0.75" PointY="12.875" Height="1.5956835937500031" IsExpanded="true" />
+        <EntityTypeShape EntityType="teletonModel.estado_civil" Width="1.5" PointX="3.75" PointY="26.5" Height="1.4033821614583388" IsExpanded="true" />
+        <EntityTypeShape EntityType="teletonModel.evolucione" Width="1.5" PointX="3" PointY="17.25" Height="8.1339322916666674" IsExpanded="true" />
+        <EntityTypeShape EntityType="teletonModel.historial" Width="1.5" PointX="11.25" PointY="23.875" Height="2.9417936197916674" IsExpanded="true" />
+        <EntityTypeShape EntityType="teletonModel.historia_clinica_adultos" Width="1.5" PointX="14.25" PointY="19.625" Height="3.3263964843750031" IsExpanded="true" />
+        <EntityTypeShape EntityType="teletonModel.historia_clinica_pediatrica" Width="1.5" PointX="14.25" PointY="15.75" Height="3.1340950520833388" IsExpanded="true" />
+        <EntityTypeShape EntityType="teletonModel.municipio" Width="1.5" PointX="3.75" PointY="28.625" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="teletonModel.ocupacione" Width="1.5" PointX="0.75" PointY="15.25" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="teletonModel.paciente" Width="1.5" PointX="6" PointY="16.25" Height="10.056946614583325" IsExpanded="true" />
+        <EntityTypeShape EntityType="teletonModel.parametro" Width="1.5" PointX="2.75" PointY="0.75" Height="1.4033821614583246" IsExpanded="true" />
+        <EntityTypeShape EntityType="teletonModel.permiso" Width="1.5" PointX="1.5" PointY="47.625" Height="1.595683593749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="teletonModel.procedencia" Width="1.5" PointX="0.75" PointY="17.75" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="teletonModel.procedencia_descripcion" Width="1.5" PointX="3" PointY="10.75" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="teletonModel.productividad" Width="1.5" PointX="0.75" PointY="23.375" Height="1.595683593749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="teletonModel.referencia" Width="1.5" PointX="2.75" PointY="3.75" Height="1.4033821614583246" IsExpanded="true" />
+        <EntityTypeShape EntityType="teletonModel.role" Width="1.5" PointX="1.5" PointY="42.125" Height="2.1725878906250102" IsExpanded="true" />
+        <EntityTypeShape EntityType="teletonModel.tipo_daño" Width="1.5" PointX="0.75" PointY="25.625" Height="1.595683593749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="teletonModel.usuario" Width="1.5" PointX="0.75" PointY="29.75" Height="3.7109993489583388" IsExpanded="true" />
+        <AssociationConnector Association="teletonModel.actividades_fk" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.5" PointY="14.297841796875" />
+          <ConnectorPoint PointX="9" PointY="14.297841796875" />
+          <ConnectorPoint PointX="9" PointY="16" />
+        </AssociationConnector>
+        <AssociationConnector Association="teletonModel.fk_n_expediente_altas" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.5" PointY="21.278595377604166" />
+          <ConnectorPoint PointX="7.666666666666667" PointY="21.278595377604166" />
+          <ConnectorPoint PointX="7.833333333333333" PointY="21.278595377604166" />
+          <ConnectorPoint PointX="8.25" PointY="21.278595377604166" />
+        </AssociationConnector>
+        <AssociationConnector Association="teletonModel.fk_username_altas" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="31.968241687500004" />
+          <ConnectorPoint PointX="7.666666666666667" PointY="31.968241687500004" />
+          <ConnectorPoint PointX="7.833333333333333" PointY="31.968241687500004" />
+          <ConnectorPoint PointX="8" PointY="31.968241687500004" />
+          <ConnectorPoint PointX="8" PointY="22.932190755208332" />
+          <ConnectorPoint PointX="9" PointY="22.932190755208332" />
+          <ConnectorPoint PointX="9" PointY="22.557190755208332" />
+        </AssociationConnector>
+        <AssociationConnector Association="teletonModel.fk_area_2" ManuallyRouted="false">
+          <ConnectorPoint PointX="10.15625" PointY="27.375" />
+          <ConnectorPoint PointX="10.15625" PointY="22.751892903645832" />
+          <ConnectorPoint PointX="10.666666666666666" PointY="22.751892903645832" />
+          <ConnectorPoint PointX="10.833333333333334" PointY="22.751892903645832" />
+          <ConnectorPoint PointX="11.25" PointY="22.751892903645832" />
+        </AssociationConnector>
+        <AssociationConnector Association="teletonModel.fk_n_expediente_2" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.5" PointY="19.84375" />
+          <ConnectorPoint PointX="7.666666666666667" PointY="19.84375" />
+          <ConnectorPoint PointX="7.833333333333333" PointY="19.84375" />
+          <ConnectorPoint PointX="10.666666666666666" PointY="19.84375" />
+          <ConnectorPoint PointX="10.833333333333334" PointY="19.84375" />
+          <ConnectorPoint PointX="11.25" PointY="19.84375" />
+        </AssociationConnector>
+        <AssociationConnector Association="teletonModel.fk_username_2" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="31.190610856770842" />
+          <ConnectorPoint PointX="3.2604166666666665" PointY="31.190610856770842" />
+          <ConnectorPoint PointX="3.4270833333333335" PointY="31.190610856770842" />
+          <ConnectorPoint PointX="7.666666666666667" PointY="31.190610856770842" />
+          <ConnectorPoint PointX="7.833333333333333" PointY="31.190610856770842" />
+          <ConnectorPoint PointX="7.916666666666667" PointY="31.190610856770842" />
+          <ConnectorPoint PointX="8.0833333333333339" PointY="31.190610856770842" />
+          <ConnectorPoint PointX="8.5104166666666661" PointY="31.190610856770842" />
+          <ConnectorPoint PointX="8.6770833333333339" PointY="31.190610856770842" />
+          <ConnectorPoint PointX="11" PointY="31.190610856770842" />
+          <ConnectorPoint PointX="11" PointY="23.259095052083332" />
+          <ConnectorPoint PointX="12" PointY="23.259095052083332" />
+          <ConnectorPoint PointX="12" PointY="22.884095052083332" />
+        </AssociationConnector>
+        <AssociationConnector Association="teletonModel.fk_area" ManuallyRouted="false">
+          <ConnectorPoint PointX="10.5" PointY="28.365143229166666" />
+          <ConnectorPoint PointX="10.666666666666666" PointY="28.365143229166666" />
+          <ConnectorPoint PointX="10.833333333333334" PointY="28.365143229166666" />
+          <ConnectorPoint PointX="10.916666666666666" PointY="28.365143229166666" />
+          <ConnectorPoint PointX="11.083333333333334" PointY="28.365143229166666" />
+          <ConnectorPoint PointX="11.510414166666665" PointY="28.365143229166666" />
+          <ConnectorPoint PointX="11.677080833333333" PointY="28.365143229166666" />
+          <ConnectorPoint PointX="12" PointY="28.365143229166666" />
+          <ConnectorPoint PointX="12" PointY="26.816793619791667" />
+        </AssociationConnector>
+        <AssociationConnector Association="teletonModel.atenciones_enfermeria_fk" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.5" PointY="17.49974609375" />
+          <ConnectorPoint PointX="8.25" PointY="17.49974609375" />
+        </AssociationConnector>
+        <AssociationConnector Association="teletonModel.atenciones_enfermeria_fk1" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="32.745872518229163" />
+          <ConnectorPoint PointX="7.75" PointY="32.745872518229163" />
+          <ConnectorPoint PointX="7.75" PointY="19.124492187500003" />
+          <ConnectorPoint PointX="9" PointY="19.124492187500003" />
+          <ConnectorPoint PointX="9" PointY="18.749492187500003" />
+        </AssociationConnector>
+        <AssociationConnector Association="teletonModel.fk_ayudas_tecnicas" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="4.172841796875" />
+          <ConnectorPoint PointX="2.5" PointY="4.172841796875" />
+          <ConnectorPoint PointX="2.5" PointY="16.875" />
+          <ConnectorPoint PointX="2.5416666666666665" PointY="16.875" />
+          <ConnectorPoint PointX="2.9895833333333335" PointY="16.875" />
+          <ConnectorPoint PointX="3.0572891666666666" PointY="16.875" />
+          <ConnectorPoint PointX="3.2239558333333336" PointY="16.875" />
+          <ConnectorPoint PointX="3.2604166666666665" PointY="16.875" />
+          <ConnectorPoint PointX="3.4270833333333335" PointY="16.875" />
+          <ConnectorPoint PointX="3.75" PointY="16.875" />
+          <ConnectorPoint PointX="3.75" PointY="17.25" />
+        </AssociationConnector>
+        <AssociationConnector Association="teletonModel.cargo_fk" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="38.375" />
+          <ConnectorPoint PointX="2.25" PointY="37.364889322916667" />
+        </AssociationConnector>
+        <AssociationConnector Association="teletonModel.roles_fk1" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="45.125" />
+          <ConnectorPoint PointX="2.25" PointY="44.29758789062501" />
+        </AssociationConnector>
+        <AssociationConnector Association="teletonModel.citas_doctor_fk" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="33.134688433593745" />
+          <ConnectorPoint PointX="8.59375" PointY="33.134688433593745" />
+          <ConnectorPoint PointX="8.59375" PointY="26.489889322916667" />
+        </AssociationConnector>
+        <AssociationConnector Association="teletonModel.paciente_fk" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.5" PointY="25.215973307291662" />
+          <ConnectorPoint PointX="7.666666666666667" PointY="25.215973307291662" />
+          <ConnectorPoint PointX="7.833333333333333" PointY="25.215973307291662" />
+          <ConnectorPoint PointX="7.916666666666667" PointY="25.215973307291662" />
+          <ConnectorPoint PointX="8.0833333333333339" PointY="25.215973307291662" />
+          <ConnectorPoint PointX="8.25" PointY="25.215973307291662" />
+        </AssociationConnector>
+        <AssociationConnector Association="teletonModel.citas_terapia_fk" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.75" PointY="16.25" />
+          <ConnectorPoint PointX="6.75" PointY="15.90625" />
+          <ConnectorPoint PointX="7.0729191666666669" PointY="15.90625" />
+          <ConnectorPoint PointX="7.2395858333333329" PointY="15.90625" />
+          <ConnectorPoint PointX="8.9166666666666661" PointY="15.90625" />
+          <ConnectorPoint PointX="9.0833333333333339" PointY="15.90625" />
+          <ConnectorPoint PointX="11.25" PointY="15.90625" />
+        </AssociationConnector>
+        <AssociationConnector Association="teletonModel.usuario_fk" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="30.801795441406263" />
+          <ConnectorPoint PointX="3.2604166666666665" PointY="30.801795441406263" />
+          <ConnectorPoint PointX="3.4270833333333335" PointY="30.801795441406263" />
+          <ConnectorPoint PointX="7.666666666666667" PointY="30.801795441406263" />
+          <ConnectorPoint PointX="7.833333333333333" PointY="30.801795441406263" />
+          <ConnectorPoint PointX="7.916666666666667" PointY="30.801795441406263" />
+          <ConnectorPoint PointX="8.0833333333333339" PointY="30.801795441406263" />
+          <ConnectorPoint PointX="8.5104166666666661" PointY="30.801795441406263" />
+          <ConnectorPoint PointX="8.6770833333333339" PointY="30.801795441406263" />
+          <ConnectorPoint PointX="10.75" PointY="30.801795441406263" />
+          <ConnectorPoint PointX="10.75" PointY="19.191793619791667" />
+          <ConnectorPoint PointX="12" PointY="19.191793619791667" />
+          <ConnectorPoint PointX="12" PointY="18.816793619791667" />
+        </AssociationConnector>
+        <AssociationConnector Association="teletonModel.fk_clasificacion" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="7.3456835937500031" />
+          <ConnectorPoint PointX="2.4410744349011213" PointY="7.536758028651124" />
+          <ConnectorPoint PointX="2.5589255650988791" PointY="7.6546091588488823" />
+          <ConnectorPoint PointX="2.625" PointY="7.7206835937500031" />
+          <ConnectorPoint PointX="2.625" PointY="21.316966145833334" />
+          <ConnectorPoint PointX="2.6666666666666665" PointY="21.316966145833334" />
+          <ConnectorPoint PointX="2.8333333333333335" PointY="21.316966145833334" />
+          <ConnectorPoint PointX="3" PointY="21.316966145833334" />
+        </AssociationConnector>
+        <AssociationConnector Association="teletonModel.fk_condicion" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="9.5333749014423113" />
+          <ConnectorPoint PointX="2.4410744349011213" PointY="9.7244493363434312" />
+          <ConnectorPoint PointX="2.5589255650988791" PointY="9.84230046654119" />
+          <ConnectorPoint PointX="2.5660744349011213" PointY="9.8494493363434312" />
+          <ConnectorPoint PointX="2.6839255650988791" PointY="9.96730046654119" />
+          <ConnectorPoint PointX="2.8125" PointY="10.095874901442311" />
+          <ConnectorPoint PointX="2.8125" PointY="19.252231072916672" />
+          <ConnectorPoint PointX="3" PointY="19.252231072916672" />
+        </AssociationConnector>
+        <AssociationConnector Association="teletonModel.departamento_paciente_fk" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.90625" PointY="15.720683593750003" />
+          <ConnectorPoint PointX="4.90625" PointY="16.71875" />
+          <ConnectorPoint PointX="6" PointY="16.71875" />
+        </AssociationConnector>
+        <AssociationConnector Association="teletonModel.diagnosticos_fk" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="21.898626302083336" />
+          <ConnectorPoint PointX="2.6041666666666665" PointY="21.898626302083336" />
+          <ConnectorPoint PointX="2.8333333333333335" PointY="21.898626302083336" />
+          <ConnectorPoint PointX="3" PointY="21.898626302083336" />
+        </AssociationConnector>
+        <AssociationConnector Association="teletonModel.diagnostico_FK" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="20.845983572916666" />
+          <ConnectorPoint PointX="2.5416666666666665" PointY="20.845983572916666" />
+          <ConnectorPoint PointX="2.7083333333333335" PointY="20.845983572916666" />
+          <ConnectorPoint PointX="2.75" PointY="20.845983572916666" />
+          <ConnectorPoint PointX="2.75" PointY="25.633932291666667" />
+          <ConnectorPoint PointX="3.0572891666666666" PointY="25.633932291666667" />
+          <ConnectorPoint PointX="3.2239558333333336" PointY="25.633932291666667" />
+          <ConnectorPoint PointX="3.2604166666666665" PointY="25.633932291666667" />
+          <ConnectorPoint PointX="3.4270833333333335" PointY="25.633932291666667" />
+          <ConnectorPoint PointX="5.75" PointY="25.633932291666667" />
+          <ConnectorPoint PointX="5.75" PointY="26.556946614583325" />
+          <ConnectorPoint PointX="6.2604141666666671" PointY="26.556946614583325" />
+          <ConnectorPoint PointX="6.4270808333333331" PointY="26.556946614583325" />
+          <ConnectorPoint PointX="6.75" PointY="26.556946614583325" />
+          <ConnectorPoint PointX="6.75" PointY="26.306946614583325" />
+        </AssociationConnector>
+        <AssociationConnector Association="teletonModel.empleado_fk" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.875" PointY="35" />
+          <ConnectorPoint PointX="1.875" PointY="33.460999348958339" />
+        </AssociationConnector>
+        <AssociationConnector Association="teletonModel.escoralidad_fk" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="11.268992513020834" />
+          <ConnectorPoint PointX="2.375" PointY="11.268992513020834" />
+          <ConnectorPoint PointX="2.375" PointY="15.875" />
+          <ConnectorPoint PointX="2.4166666666666665" PointY="15.874999999999998" />
+          <ConnectorPoint PointX="2.9895833333333335" PointY="15.875" />
+          <ConnectorPoint PointX="3.2604166666666665" PointY="15.875" />
+          <ConnectorPoint PointX="3.4270833333333335" PointY="15.875" />
+          <ConnectorPoint PointX="4.822916666666667" PointY="15.875" />
+          <ConnectorPoint PointX="4.989583333333333" PointY="15.875" />
+          <ConnectorPoint PointX="6.343748" PointY="15.875" />
+          <ConnectorPoint PointX="6.343748" PointY="16.25" />
+        </AssociationConnector>
+        <AssociationConnector Association="teletonModel.fk_escolaridad" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="12.100676333733976" />
+          <ConnectorPoint PointX="2.3160744349011213" PointY="12.166750768635096" />
+          <ConnectorPoint PointX="2.4339255650988791" PointY="12.284601898832854" />
+          <ConnectorPoint PointX="2.4410744349011213" PointY="12.291750768635096" />
+          <ConnectorPoint PointX="2.5589255650988791" PointY="12.409601898832854" />
+          <ConnectorPoint PointX="2.5660744349011213" PointY="12.416750768635096" />
+          <ConnectorPoint PointX="2.6839255650988791" PointY="12.534601898832854" />
+          <ConnectorPoint PointX="2.6875" PointY="12.538176333733976" />
+          <ConnectorPoint PointX="2.6875" PointY="23.672531296874993" />
+          <ConnectorPoint PointX="3" PointY="23.672531296874993" />
+        </AssociationConnector>
+        <AssociationConnector Association="teletonModel.fk_estado_alta" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="13.46875" />
+          <ConnectorPoint PointX="2.2916666666666665" PointY="13.468749999999998" />
+          <ConnectorPoint PointX="2.9895833333333335" PointY="13.46875" />
+          <ConnectorPoint PointX="3.34375" PointY="13.46875" />
+          <ConnectorPoint PointX="3.34375" PointY="17.25" />
+        </AssociationConnector>
+        <AssociationConnector Association="teletonModel.pacientes_fk" ManuallyRouted="false">
+          <ConnectorPoint PointX="5.25" PointY="27.230164388020832" />
+          <ConnectorPoint PointX="6.3437475" PointY="27.230164388020832" />
+          <ConnectorPoint PointX="6.3437475" PointY="26.306946614583325" />
+        </AssociationConnector>
+        <AssociationConnector Association="teletonModel.evaluador_fk" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="31.579426272135422" />
+          <ConnectorPoint PointX="3.34375" PointY="31.579426272135422" />
+          <ConnectorPoint PointX="3.34375" PointY="25.383932291666667" />
+        </AssociationConnector>
+        <AssociationConnector Association="teletonModel.fk_ocupaciones" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="16.375" />
+          <ConnectorPoint PointX="2.4166666666666665" PointY="16.374999999999996" />
+          <ConnectorPoint PointX="2.9895833333333335" PointY="16.375" />
+          <ConnectorPoint PointX="3.1406225" PointY="16.375" />
+          <ConnectorPoint PointX="3.1406225" PointY="17.25" />
+        </AssociationConnector>
+        <AssociationConnector Association="teletonModel.fk_procedencia" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="18.438615536458336" />
+          <ConnectorPoint PointX="2.5416666666666665" PointY="18.438615536458336" />
+          <ConnectorPoint PointX="2.8958333333333335" PointY="18.438615536458336" />
+          <ConnectorPoint PointX="3" PointY="18.438615536458336" />
+        </AssociationConnector>
+        <AssociationConnector Association="teletonModel.fk_productividad" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="24.384107445312495" />
+          <ConnectorPoint PointX="2.6666666666666665" PointY="24.384107445312495" />
+          <ConnectorPoint PointX="2.8333333333333335" PointY="24.384107445312495" />
+          <ConnectorPoint PointX="3" PointY="24.384107445312495" />
+        </AssociationConnector>
+        <AssociationConnector Association="teletonModel.fk_tipo_daño" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="26.035716145833334" />
+          <ConnectorPoint PointX="3.1406225" PointY="26.035716145833334" />
+          <ConnectorPoint PointX="3.1406225" PointY="25.383932291666667" />
+        </AssociationConnector>
+        <AssociationConnector Association="teletonModel.pacientes_fk1" ManuallyRouted="false">
+          <ConnectorPoint PointX="6" PointY="21.316966145833334" />
+          <ConnectorPoint PointX="4.5" PointY="21.316966145833334" />
+        </AssociationConnector>
+        <AssociationConnector Association="teletonModel.fk_n_expediente" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.5" PointY="23.96875" />
+          <ConnectorPoint PointX="7.666666666666667" PointY="23.96875" />
+          <ConnectorPoint PointX="7.833333333333333" PointY="23.96875" />
+          <ConnectorPoint PointX="7.916666666666667" PointY="23.96875" />
+          <ConnectorPoint PointX="8.0833333333333339" PointY="23.96875" />
+          <ConnectorPoint PointX="10.072916666666666" PointY="23.96875" />
+          <ConnectorPoint PointX="10.239583333333334" PointY="23.96875" />
+          <ConnectorPoint PointX="10.666666666666666" PointY="23.96875" />
+          <ConnectorPoint PointX="10.833333333333334" PointY="23.96875" />
+          <ConnectorPoint PointX="10.916666666666666" PointY="23.96875" />
+          <ConnectorPoint PointX="11.083333333333334" PointY="23.96875" />
+          <ConnectorPoint PointX="11.25" PointY="23.96875" />
+        </AssociationConnector>
+        <AssociationConnector Association="teletonModel.fk_username" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="32.357057102864587" />
+          <ConnectorPoint PointX="7.666666666666667" PointY="32.357057102864587" />
+          <ConnectorPoint PointX="7.833333333333333" PointY="32.357057102864587" />
+          <ConnectorPoint PointX="8.5104166666666661" PointY="32.357057102864587" />
+          <ConnectorPoint PointX="8.6770833333333339" PointY="32.357057102864587" />
+          <ConnectorPoint PointX="11.5937475" PointY="32.357057102864587" />
+          <ConnectorPoint PointX="11.5937475" PointY="26.816793619791667" />
+        </AssociationConnector>
+        <AssociationConnector Association="teletonModel.fk_n_expediente_3" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.5" PointY="19.65625" />
+          <ConnectorPoint PointX="7.666666666666667" PointY="19.65625" />
+          <ConnectorPoint PointX="7.833333333333333" PointY="19.65625" />
+          <ConnectorPoint PointX="10.666666666666666" PointY="19.65625" />
+          <ConnectorPoint PointX="10.833333333333334" PointY="19.65625" />
+          <ConnectorPoint PointX="13.916666666666666" PointY="19.65625" />
+          <ConnectorPoint PointX="14.083333333333334" PointY="19.65625" />
+          <ConnectorPoint PointX="14.25" PointY="19.65625" />
+        </AssociationConnector>
+        <AssociationConnector Association="teletonModel.fk_username_3" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="30.607387733723971" />
+          <ConnectorPoint PointX="3.2604166666666665" PointY="30.607387733723971" />
+          <ConnectorPoint PointX="3.4270833333333335" PointY="30.607387733723971" />
+          <ConnectorPoint PointX="7.666666666666667" PointY="30.607387733723971" />
+          <ConnectorPoint PointX="7.833333333333333" PointY="30.607387733723971" />
+          <ConnectorPoint PointX="7.916666666666667" PointY="30.607387733723971" />
+          <ConnectorPoint PointX="8.0833333333333339" PointY="30.607387733723971" />
+          <ConnectorPoint PointX="8.5104166666666661" PointY="30.607387733723971" />
+          <ConnectorPoint PointX="8.6770833333333339" PointY="30.607387733723971" />
+          <ConnectorPoint PointX="10.666666666666666" PointY="30.607387733723971" />
+          <ConnectorPoint PointX="10.833333333333334" PointY="30.607387733723971" />
+          <ConnectorPoint PointX="10.916666666666666" PointY="30.607387733723971" />
+          <ConnectorPoint PointX="11.083333333333334" PointY="30.607387733723971" />
+          <ConnectorPoint PointX="11.510414166666665" PointY="30.607387733723971" />
+          <ConnectorPoint PointX="11.677080833333333" PointY="30.607387733723971" />
+          <ConnectorPoint PointX="13.916666666666666" PointY="30.607387733723971" />
+          <ConnectorPoint PointX="14.083333333333334" PointY="30.607387733723971" />
+          <ConnectorPoint PointX="15" PointY="30.607387733723971" />
+          <ConnectorPoint PointX="15" PointY="22.951396484375003" />
+        </AssociationConnector>
+        <AssociationConnector Association="teletonModel.fk_n_expediente_4" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.1562525" PointY="16.25" />
+          <ConnectorPoint PointX="7.1562525" PointY="15.78125" />
+          <ConnectorPoint PointX="8.9166666666666661" PointY="15.78125" />
+          <ConnectorPoint PointX="9.0833333333333339" PointY="15.78125" />
+          <ConnectorPoint PointX="14.25" PointY="15.78125" />
+        </AssociationConnector>
+        <AssociationConnector Association="teletonModel.fk_username_4" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="30.996203149088551" />
+          <ConnectorPoint PointX="3.2604166666666665" PointY="30.996203149088551" />
+          <ConnectorPoint PointX="3.4270833333333335" PointY="30.996203149088551" />
+          <ConnectorPoint PointX="7.666666666666667" PointY="30.996203149088551" />
+          <ConnectorPoint PointX="7.833333333333333" PointY="30.996203149088551" />
+          <ConnectorPoint PointX="7.916666666666667" PointY="30.996203149088551" />
+          <ConnectorPoint PointX="8.0833333333333339" PointY="30.996203149088551" />
+          <ConnectorPoint PointX="8.5104166666666661" PointY="30.996203149088551" />
+          <ConnectorPoint PointX="8.6770833333333339" PointY="30.996203149088551" />
+          <ConnectorPoint PointX="10.916666666666666" PointY="30.996203149088551" />
+          <ConnectorPoint PointX="11.083333333333334" PointY="30.996203149088551" />
+          <ConnectorPoint PointX="11.510414166666665" PointY="30.996203149088551" />
+          <ConnectorPoint PointX="11.677080833333333" PointY="30.996203149088551" />
+          <ConnectorPoint PointX="14" PointY="30.996203149088551" />
+          <ConnectorPoint PointX="14" PointY="19.259095052083339" />
+          <ConnectorPoint PointX="15" PointY="19.259095052083339" />
+          <ConnectorPoint PointX="15" PointY="18.884095052083339" />
+        </AssociationConnector>
+        <AssociationConnector Association="teletonModel.municipio_paciente_fk" ManuallyRouted="false">
+          <ConnectorPoint PointX="5.25" PointY="29.518992513020834" />
+          <ConnectorPoint PointX="7.1562525" PointY="29.518992513020834" />
+          <ConnectorPoint PointX="7.1562525" PointY="26.306946614583325" />
+        </AssociationConnector>
+        <AssociationConnector Association="teletonModel.profesion_fk" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="16.546875" />
+          <ConnectorPoint PointX="2.4166666666666665" PointY="16.546874999999996" />
+          <ConnectorPoint PointX="2.9895833333333335" PointY="16.546875" />
+          <ConnectorPoint PointX="3.0572891666666666" PointY="16.546875" />
+          <ConnectorPoint PointX="3.2239558333333336" PointY="16.546875" />
+          <ConnectorPoint PointX="3.2604166666666665" PointY="16.546875" />
+          <ConnectorPoint PointX="3.4270833333333335" PointY="16.546875" />
+          <ConnectorPoint PointX="4.822916666666667" PointY="16.546875" />
+          <ConnectorPoint PointX="4.989583333333333" PointY="16.546875" />
+          <ConnectorPoint PointX="6" PointY="16.546875" />
+        </AssociationConnector>
+        <AssociationConnector Association="teletonModel.procedencia_fk" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="17.782306692307689" />
+          <ConnectorPoint PointX="2.5660744349011204" PointY="17.466232257406567" />
+          <ConnectorPoint PointX="2.7464255650988791" PointY="17.28588112720881" />
+          <ConnectorPoint PointX="2.7535744349011204" PointY="17.278732257406567" />
+          <ConnectorPoint PointX="2.8714255650988791" PointY="17.16088112720881" />
+          <ConnectorPoint PointX="2.90625" PointY="17.126056692307689" />
+          <ConnectorPoint PointX="2.90625" PointY="11.643992513020834" />
+          <ConnectorPoint PointX="3" PointY="11.643992513020834" />
+        </AssociationConnector>
+        <AssociationConnector Association="teletonModel.permisos_x_roles" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.5" PointY="47.625" />
+          <ConnectorPoint PointX="1.125" PointY="47.25" />
+          <ConnectorPoint PointX="1.125" PointY="44.67258789062501" />
+          <ConnectorPoint PointX="1.5" PointY="44.29758789062501" />
+        </AssociationConnector>
+        <AssociationConnector Association="teletonModel.usuarios_x_rol" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.5" PointY="43.180041445312511" />
+          <ConnectorPoint PointX="1.0937475" PointY="43.180041445312511" />
+          <ConnectorPoint PointX="1.0937475" PointY="33.460999348958339" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
