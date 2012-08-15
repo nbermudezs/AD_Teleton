@@ -44,11 +44,22 @@ public partial class EditarCitasMedico : System.Web.UI.Page
 
     protected void Refrescar_Click(object sender, ImageClickEventArgs e)
     {
-        BL.Usuarios user = new BL.Usuarios();
-        string username = user.RetrieveUserName(cmbdoctor.Text.Substring(0,cmbdoctor.Text.IndexOf(' ')));
-        DateTime fechai = DateTime.Parse(txtdateinit.Text);
-        DateTime fechaf = fechai.AddDays(1);
-        GridViewCitas.DataSource = app.getCitasMedicas(username, fechai, fechaf);
-        GridViewCitas.DataBind();
+        try
+        {
+            BL.Usuarios user = new BL.Usuarios();
+            string username = user.RetrieveUserName(cmbdoctor.Text.Substring(0, cmbdoctor.Text.IndexOf(' ')));
+            DateTime fechai = DateTime.Parse(txtdateinit.Text);
+            DateTime fechaf = fechai.AddDays(1);
+            GridViewCitas.DataSource = app.getCitasMedicas(username, fechai, fechaf);
+            GridViewCitas.DataBind();
+        }
+        catch (FormatException err)
+        {
+            Response.Write("<script>alert('Debe seleccionar una fecha antes.')</script>");
+        }
+        catch (Exception err) {
+            Session["Error_Msg"] = err.Message;
+            Response.Redirect("~/Error.aspx", true);
+        }
     }
 }
