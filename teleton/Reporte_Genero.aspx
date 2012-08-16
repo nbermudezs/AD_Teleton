@@ -1,25 +1,36 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Exportar_Seguimiento.aspx.cs" Inherits="Exportar_Seguimiento" %>
+﻿<%@ Page Language="C#"  ValidateRequest="true" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Reporte_Genero.aspx.cs" Inherits="Reporte_Genero" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 
-
-<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="Server">
     <link href="Styles/Teleton.css" rel="stylesheet" type="text/css" />
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
-    <div id = "content">
-        <div id="content3">
+
+
+<asp:Content ID="content2" ContentPlaceHolderID="MainContent" runat="server">
+<div id="content">
+    <div id="content3">
             <div id = "titulo">
-                <h1>Exportar Seguimiento</h1>
+                <h1>Reporte de pacientes por Género</h1>
             </div>
         </div>
+    
+    <div id="navcenter">
+    
+    <fieldset id="Seguimiento">
+    <legend>Opciones</legend>
 
-        <div id="navcenter">
-            <fieldset id="Seguimiento">
-                <legend>Seguimiento de Pacientes</legend>
-                <ul class="list">
-                    <li class="field">
-                        <div class="fieldIzquierdo">
-                            <asp:Label runat="server" ID="lblFechaInicio">Fecha Inicio:</asp:Label>
+    <ul class="list">
+    <li class="field">
+    <div class="fieldIzquierdo">
+        <asp:RadioButtonList ID="RadioButtonList1" runat="server" 
+            onselectedindexchanged="RadioButtonList1_SelectedIndexChanged">
+            <asp:ListItem Value="0" Selected="True">Masculino</asp:ListItem>
+            <asp:ListItem Value="1">Femenino</asp:ListItem>
+        </asp:RadioButtonList>
+    <asp:Button ID="Button1" runat="server" onclick="Button1_Click" Text="Ejecutar" CssClass="boton"/>
+    </div>
+    <div class="fieldDerecho"> 
+    <asp:Label runat="server" ID="lblFechaInicio">Fecha Inicio:</asp:Label>
                             <asp:TextBox runat="server" ID="txtFechaInicio" CssClass="requerido"></asp:TextBox>
                             <asp:CalendarExtender ID="ceFechaInicio" runat="server" 
                                 TargetControlID="txtFechaInicio" Format="dd/MM/yyyy"
@@ -31,10 +42,10 @@
                                 ValidationGroup="TodoError" ControlToValidate="txtFechaInicio" 
                                 ForeColor="Red">*
                             </asp:RequiredFieldValidator>
-                        </div>
-                        
-                        <div class="fieldDerecho">
-                            <asp:Label runat="server" ID="lblFechaFinal">Fecha Final:</asp:Label>
+    
+        <br />
+        <br />
+    <asp:Label runat="server" ID="lblFechaFinal">Fecha Final:</asp:Label>
                             <asp:TextBox runat="server" ID="txtFechaFinal" CssClass="requerido"></asp:TextBox>
                             <asp:CalendarExtender ID="ceFechaFinal" runat="server" 
                                 TargetControlID="txtFechaFinal" Format="dd/MM/yyyy"
@@ -44,55 +55,29 @@
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
                                 ControlToValidate="txtFechaFinal" ErrorMessage="Fecha final requerida" 
                                 ForeColor="Red" ValidationGroup="TodoError">*</asp:RequiredFieldValidator>
-                        </div>
-                    </li>
+    </div>
+    </li>
+        </ul> 
+        </fieldset>
 
-                    <li class="field">
-                        <div class="fieldIzquierdo">
-                            <asp:Label runat="server" ID="lblDoctor" Text="Nombre doctor:"></asp:Label>
-                            <asp:DropDownList runat="server" ID="ddlDoctor" 
-                                Width="50%">
-                            </asp:DropDownList>
-                        </div>
-
-                        <div class="fieldDerecho">
-                            <asp:Button runat="server" ID="btEjecutar" Text="Ejecutar" 
-                                ValidationGroup="TodoError" CssClass="boton" onclick="btEjecutar_Click" />
-                        </div>
-                    </li>
-
-                    <li class="field">
-                    </li>
-
-                    <li class="field">
-                        <asp:ValidationSummary runat="server" ID="svErrores" 
-                            HeaderText="Campos con conflictos:" ValidationGroup="TodoError" 
-                            CssClass="failureNotification" DisplayMode="SingleParagraph" />
-                    </li>
-                </ul>
-            </fieldset>
         </div>
-        
+       <div>
 
-        <div>
-            <fieldset>
-                <legend>Resultados</legend>
-                <ul class="list">
-                    <li class="field">
-                        <asp:Button runat="server" ID="btExportar" Text="Exportar a Excel" 
-                            CssClass="boton" Visible="false" onclick="btExportar_Click"/>
-                    </li>
-                </ul>
-                <asp:Panel runat="server" ID="gridPanel" ScrollBars="Auto" CssClass="panel">
-                    <asp:GridView ID="gvSeguimientoPaciente" runat="server" CssClass="Grid" EmptyDataText="----Su busqueda no genero resultados intente con otra fecha.----"
-                        AutoGenerateColumns="false" ShowHeaderWhenEmpty="true"> 
+        <fieldset id="Resultado">
+        <legend>Resultado</legend>
+
+        
+            <asp:Button ID="Button2" runat="server" onclick="Button2_Click" Text="Exportar a Excel" CssClass="boton"/>
+        
+        <asp:Panel runat="server" ID="gridPanel" ScrollBars="Auto" CssClass="panel">
+        <asp:GridView ID="gvreportegenero" runat="server" CssClass="Grid" EmptyDataText="----Su busqueda no genero resultados intente con otra fecha.----"
+                        AutoGenerateColumns="false" ShowHeaderWhenEmpty="true" >
                         
                     
                         <PagerSettings Mode="Numeric" Position="Bottom" Visible="true" />
                         <PagerStyle BackColor="ControlLight" />
 
                         <Columns>
-                    
                             <asp:BoundField HeaderText="Fecha" DataField="fecha" DataFormatString="{0:d}" />
                             <asp:BoundField HeaderText="Expediente" DataField="expediente" />
                             <asp:BoundField HeaderText="Clasificación Paciente" DataField="clasificacion" />
@@ -110,13 +95,17 @@
                             <asp:BoundField HeaderText="Diagnóstico" DataField="diagnostico1" />
                             <asp:BoundField HeaderText="Tipo De Daño" DataField="tipo" />
                             <asp:BoundField HeaderText="Procedencia" DataField="procedencia1" />
-                            <asp:BoundField HeaderText="Función Y Estructura" DataField="funcion_estructura" />
+                            <asp:BoundField HeaderText="Función Y Estructura" 
+                                DataField="funcion_estructura" />
                             <asp:BoundField HeaderText="Grado De Instrucción" DataField="Grado" />
                             <asp:BoundField HeaderText="Ayudas Técnicas Ind." DataField="ayuda" />
                             <asp:BoundField HeaderText="Ocupación Actual" DataField="ocupacion" />
-                            <asp:BoundField HeaderText="Años Discapacidad" DataField="años_tiempo_discapacidad" />
-                            <asp:BoundField HeaderText="Meses Discapacidad" DataField="meses_tiempo_discapacidad" />
-                            <asp:BoundField HeaderText="Dias Discapacidad" DataField="dias_tiempo_discapacidad" />
+                            <asp:BoundField HeaderText="Años Discapacidad" 
+                                DataField="años_tiempo_discapacidad" />
+                            <asp:BoundField HeaderText="Meses Discapacidad" 
+                                DataField="meses_tiempo_discapacidad" />
+                            <asp:BoundField HeaderText="Dias Discapacidad" 
+                                DataField="dias_tiempo_discapacidad" />
                             <asp:BoundField HeaderText="Años T.S.T.D.L." DataField="años_TSTDL" />
                             <asp:BoundField HeaderText="Meses T.S.T.D.L." DataField="meses_TSTDL" />
                             <asp:BoundField HeaderText="Dias T.S.T.D.L." DataField="dias_TSTDL" />
@@ -124,9 +113,14 @@
 
                         </Columns>
                     </asp:GridView>
-                </asp:Panel>
-            </fieldset>
-        </div>
-    </div>
-</asp:Content>
+                    </asp:Panel>
+        
+        
+        </fieldset>
 
+       </div>
+
+
+        
+        </div>
+</asp:Content>

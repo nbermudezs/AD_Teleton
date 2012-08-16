@@ -797,6 +797,8 @@ namespace BL
             }
         }
 
+       
+
         /// <summary>
         /// Funcion para buscar el paciente segun campos seleccionados
         /// </summary>
