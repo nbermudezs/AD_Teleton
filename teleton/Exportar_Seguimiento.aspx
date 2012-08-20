@@ -85,7 +85,8 @@
                 </ul>
                 <asp:Panel runat="server" ID="gridPanel" ScrollBars="Auto" CssClass="panel">
                     <asp:GridView ID="gvSeguimientoPaciente" runat="server" CssClass="Grid" EmptyDataText="----Su busqueda no genero resultados intente con otra fecha.----"
-                        AutoGenerateColumns="false" ShowHeaderWhenEmpty="true">
+                        AutoGenerateColumns="false" ShowHeaderWhenEmpty="true"> 
+                        
                     
                         <PagerSettings Mode="Numeric" Position="Bottom" Visible="true" />
                         <PagerStyle BackColor="ControlLight" />

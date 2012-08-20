@@ -114,6 +114,10 @@
                         </asp:MenuItem>
                         <asp:MenuItem Text="Mant. Áreas" Value ="Mante. Áreas" NavigateUrl="~/Areas.aspx"></asp:MenuItem>
                     </asp:MenuItem>
+                    <asp:MenuItem Text="Reportes" Value="Reportes">
+                    <asp:MenuItem NavigateUrl="~/Reporte_Genero.aspx" Text="Por Genero" Value="Por Genero">
+                                </asp:MenuItem>
+                    </asp:MenuItem>
                 </Items>
             </asp:Menu>
         </div>
