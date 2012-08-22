@@ -750,7 +750,7 @@ namespace BL
                                 ((p.fecha.CompareTo(fechafin) == 0) || (p.fecha.CompareTo(fechafin) < 0)) && (p.prefijo == centroid) &&
                                 (es.id == grado) 
                                 
-                                
+                                //NESTOR ES UN DICTADOR :D
 
 
                         select new
