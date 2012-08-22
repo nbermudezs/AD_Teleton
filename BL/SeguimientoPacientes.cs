@@ -881,8 +881,6 @@ namespace BL
             }
         }
 
-        public void FuncionQueNoHaceNada() { }
-
 
     }
         #endregion
