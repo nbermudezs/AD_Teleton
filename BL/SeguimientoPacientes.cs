@@ -13,6 +13,117 @@ namespace BL
 {
     public class SeguimientoPacientes
     {
+	
+		//Convert IQueryable to DataTable
+            public DataTable LINQToDataTable<T>(IEnumerable<T> varlist)
+            {
+                 DataTable dtReturn = new DataTable();
+
+                 // column names 
+                 PropertyInfo[] oProps = null;
+
+                 if (varlist == null) return dtReturn;
+
+                 foreach (T rec in varlist)
+                 {
+                      // Use reflection to get property names, to create table, Only first time, others will follow 
+                      if (oProps == null)
+                      {
+                           oProps = ((Type)rec.GetType()).GetProperties();
+                           foreach (PropertyInfo pi in oProps)
+                           {
+                                Type colType = pi.PropertyType;
+
+                                if ((colType.IsGenericType) && (colType.GetGenericTypeDefinition()==typeof(Nullable<>)))
+                                 {
+                                     colType = colType.GetGenericArguments()[0];
+                                 }
+
+                                dtReturn.Columns.Add(new DataColumn(pi.Name, colType));
+                           }
+                      }
+
+                      DataRow dr = dtReturn.NewRow();
+
+                      foreach (PropertyInfo pi in oProps)
+                      {
+                           dr[pi.Name] = pi.GetValue(rec, null) == null ?DBNull.Value :pi.GetValue
+                           (rec,null);
+                      }
+
+                      dtReturn.Rows.Add(dr);
+                 }
+                 return dtReturn;
+            }
+   
+
+        
+        public DataTable GetDataReporteConsolidado(DateTime fechainit, DateTime fechafin, int centroid)
+        {           
+
+            DateTime fechaFinal = new DateTime(fechafin.Year, fechafin.Month, fechafin.Day, 23, 59, 59);
+
+            try
+            {
+                var query = from p in entities.evoluciones
+
+                            join e in entities.clasificacion_paciente
+                            on p.id_clasificacion_paciente equals e.id
+
+                            join doc in
+                                (from temp in entities.usuarios
+                                 join emp in entities.empleados
+                                 on temp.empleado equals emp.id
+                                 where emp.puesto == 16
+                                 select new { temp.username, emp.nombres, emp.primer_apellido, emp.segundo_apellido })
+                            on p.evaluador equals doc.username
+
+                            join b in entities.pacientes
+                            on p.expediente equals b.expediente
+
+                            join r in entities.condicions
+                            on p.id_condicion equals r.simbolo
+
+                            join a in entities.diagnosticos
+                            on p.id_diagnostico equals a.id
+
+                            join d in entities.tipo_daño
+                            on p.id_tipo_daño equals d.id
+
+                            join t in entities.procedencias
+                            on p.id_procedencia equals t.simbolo
+
+                            join es in entities.escolaridads
+                            on p.id_escolaridad equals es.id
+
+                            join ay in entities.ayudas_tecnicas
+                            on p.id_ayudas_tecnicas equals ay.id
+
+                            join oc in entities.ocupaciones
+                            on p.id_ocupacion equals oc.id
+
+                            where ((p.fecha.CompareTo(fechainit) == 0) || (p.fecha.CompareTo(fechainit) > 0)) &&
+                                    ((p.fecha.CompareTo(fechaFinal) == 0) || (p.fecha.CompareTo(fechaFinal) < 0)) && (p.prefijo == centroid)
+
+                            select new
+                            {                                                                                            
+                                b.sexo,//                                
+                                r.condicion1,//Nuevo o Subsecuente                                
+                                t.procedencia1,//Rural o Urbano                                
+                                id_escolaridad = es.id,//Se refiere al grado de Instruccion o Escolaridad                                                                                             
+                                b.fecha_nac,
+                                p.id_estado_alta
+                            };
+
+                return LINQToDataTable(query);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);   
+            }                                
+                    
+        }           
+
 
         private string _actividadesParticipacion;
         private string _estructura;
