@@ -120,7 +120,8 @@
                                 </asp:MenuItem>
                         <asp:MenuItem NavigateUrl="~/Reporte_Procedencia.aspx" Text="Por procedencia" 
                             Value="Por procedencia"></asp:MenuItem>
-                        <asp:MenuItem Text="Por rango de edades" Value="Por rango de edades">
+                        <asp:MenuItem Text="Por rango de edades" Value="Por rango de edades" 
+                            NavigateUrl="~/ReporteEdades.aspx">
                         </asp:MenuItem>
                         <asp:MenuItem NavigateUrl="~/Reportes_Instruccion.aspx" 
                             Text="Por nivel de instrucción" Value="Por nivel de instrucción">
@@ -129,7 +130,8 @@
                             Value="Por condición"></asp:MenuItem>
                         <asp:MenuItem NavigateUrl="~/ReporteDadosAlta.aspx" Text="Dados de Alta" 
                             Value="Dados de Alta"></asp:MenuItem>
-                        <asp:MenuItem Text="Condensado" Value="Condensado"></asp:MenuItem>
+                        <asp:MenuItem Text="Condensado" Value="Condensado" 
+                            NavigateUrl="~/ParametersForm_Con.aspx"></asp:MenuItem>
                     </asp:MenuItem>
                 </Items>
             </asp:Menu>
