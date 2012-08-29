@@ -130,7 +130,7 @@
                             Value="Por condición"></asp:MenuItem>
                         <asp:MenuItem NavigateUrl="~/ReporteDadosAlta.aspx" Text="Dados de Alta" 
                             Value="Dados de Alta"></asp:MenuItem>
-                        <asp:MenuItem Text="Condensado" Value="Condensado" 
+                        <asp:MenuItem Text="Condensado por Rango de Fechas" Value="Condensado" 
                             NavigateUrl="~/ParametersForm_Con.aspx"></asp:MenuItem>
                     </asp:MenuItem>
                 </Items>
