@@ -56,7 +56,7 @@ public partial class Default2 : System.Web.UI.Page
         }
         catch (Exception error)
         {
-            Session["Error_Msg"] = error.Message;
+            Session["Error_Msg"] = error.StackTrace;
             Response.Redirect("~/Error.aspx", true);
         }
     }
