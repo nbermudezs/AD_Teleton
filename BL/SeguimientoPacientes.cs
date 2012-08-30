@@ -1324,6 +1324,8 @@ namespace BL
         //Nestor Bermudez 9/8/2012
         public IQueryable BusquedaporProcedencia(string procedencia, DateTime fechaIni, DateTime fechaFin, int centroid)
         {
+            DateTime fechaFinal = new DateTime(fechaFin.Year, fechaFin.Month, fechaFin.Day, 23, 59, 59);
+
             var query = from p in entities.evoluciones
 
                         join b in entities.pacientes
@@ -1363,7 +1365,7 @@ namespace BL
 
                         where ((t.procedencia1 == procedencia) &&
                                 (fechaIni.CompareTo(p.fecha) <= 0) &&
-                                (fechaFin.CompareTo(p.fecha) >= 0) &&
+                                (fechaFinal.CompareTo(p.fecha) >= 0) &&
                                 (p.prefijo == centroid))
 
                         select new
