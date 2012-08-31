@@ -138,7 +138,17 @@ public partial class ReporteDadosAlta : System.Web.UI.Page
             SeguimientoPacientes segPacientes = new SeguimientoPacientes();
             int centroId = (int)long.Parse(Session["Centro_idNum"].ToString());
 
-            gvSeguimientoPaciente.DataSource = segPacientes.ReporteDadosAltaporDoctor(DateTime.Parse(txtFechaInicio.Text), DateTime.Parse(txtFechaFinal.Text), centroId, ddlDoctor.SelectedValue);
+            int yy = int.Parse(this.txtFechaInicio.Text.Substring(6, 4));
+            int mm = int.Parse(this.txtFechaInicio.Text.Substring(3, 2));
+            int dd = int.Parse(this.txtFechaInicio.Text.Substring(0, 2));
+            DateTime fechaIni = new DateTime(yy, mm, dd);
+
+            yy = int.Parse(this.txtFechaFinal.Text.Substring(6, 4));
+            mm = int.Parse(this.txtFechaFinal.Text.Substring(3, 2));
+            dd = int.Parse(this.txtFechaFinal.Text.Substring(0, 2));
+            DateTime fechaFin = new DateTime(yy, mm, dd);
+
+            gvSeguimientoPaciente.DataSource = segPacientes.ReporteDadosAltaporDoctor(fechaIni, fechaFin, centroId, ddlDoctor.SelectedValue);
             gvSeguimientoPaciente.DataBind();
 
             btExportar.Visible = true;

@@ -69,7 +69,17 @@ public partial class ReporteEdades : System.Web.UI.Page
             SeguimientoPacientes segPacientes = new SeguimientoPacientes();
             int centroId = (int)long.Parse(Session["Centro_idNum"].ToString());
 
-            gvSeguimientoPaciente.DataSource = segPacientes.BusquedaporEdades(DateTime.Parse(txtFechaInicio.Text), DateTime.Parse(txtFechaFinal.Text), centroId,edadfecha(Convert.ToInt32(edad1.Text)),edadfecha(Convert.ToInt32(edad2.Text)));
+            int yy = int.Parse(this.txtFechaInicio.Text.Substring(6, 4));
+            int mm = int.Parse(this.txtFechaInicio.Text.Substring(3, 2));
+            int dd = int.Parse(this.txtFechaInicio.Text.Substring(0, 2));
+            DateTime fechaIni = new DateTime(yy, mm, dd);
+
+            yy = int.Parse(this.txtFechaFinal.Text.Substring(6, 4));
+            mm = int.Parse(this.txtFechaFinal.Text.Substring(3, 2));
+            dd = int.Parse(this.txtFechaFinal.Text.Substring(0, 2));
+            DateTime fechaFin = new DateTime(yy, mm, dd);
+
+            gvSeguimientoPaciente.DataSource = segPacientes.BusquedaporEdades(fechaIni, fechaFin , centroId,edadfecha(Convert.ToInt32(edad1.Text)),edadfecha(Convert.ToInt32(edad2.Text)));
             gvSeguimientoPaciente.DataBind();
 
             btExportar.Visible = true;
