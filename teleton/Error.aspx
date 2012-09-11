@@ -18,7 +18,7 @@
     <asp:Panel ID="Panel1" runat="server">
         <asp:Label ID="Label1" runat="server" Text="Label">(Mostrar Detalles...)</asp:Label>
     </asp:Panel>
-    <asp:Panel ID="Panel2" runat="server">
+    <asp:Panel ID="Panel2" runat="server" ScrollBars="Both">
         <asp:Label ID="Label2" runat="server" Text="Label">Error Message Placeholder</asp:Label>
     </asp:Panel>
         <asp:CollapsiblePanelExtender ID="Panel2_CollapsiblePanelExtender" 

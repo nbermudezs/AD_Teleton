@@ -56,26 +56,36 @@ public partial class Reporte_Genero : System.Web.UI.Page
     }
     protected void Button1_Click(object sender, EventArgs e)
     {
+        int yy = int.Parse(this.txtFechaInicio.Text.Substring(6, 4));
+        int mm = int.Parse(this.txtFechaInicio.Text.Substring(3, 2));
+        int dd = int.Parse(this.txtFechaInicio.Text.Substring(0, 2));
+        DateTime fechaIni = new DateTime(yy, mm, dd);
+
+        yy = int.Parse(this.txtFechaFinal.Text.Substring(6, 4));
+        mm = int.Parse(this.txtFechaFinal.Text.Substring(3, 2));
+        dd = int.Parse(this.txtFechaFinal.Text.Substring(0, 2));
+        DateTime fechaFin = new DateTime(yy, mm, dd);
+
         try
         {
             if (RadioButtonList1.Items[0].Selected)
             {
                 //Response.Redirect("/Reporte_Genero.aspx?op=0");
-                gvreportegenero.DataSource = pacientes.Busqueda_pacientes(true, DateTime.Parse(txtFechaInicio.Text), DateTime.Parse(txtFechaFinal.Text));
+                gvreportegenero.DataSource = pacientes.Busqueda_pacientes(true, fechaIni, fechaFin);
                 //RadioButtonList1.SelectedIndex = 0;
                 gvreportegenero.DataBind();
             }
             else if (RadioButtonList1.Items[1].Selected)
             {
                 //Response.Redirect("/Reporte_Genero.aspx?op=1");
-                gvreportegenero.DataSource = pacientes.Busqueda_pacientes(false, DateTime.Parse(txtFechaInicio.Text), DateTime.Parse(txtFechaFinal.Text));
+                gvreportegenero.DataSource = pacientes.Busqueda_pacientes(false, fechaIni, fechaFin);
                 //RadioButtonList1.SelectedIndex = 0;
                 gvreportegenero.DataBind();
             }
         }
         catch (Exception error)
         {
-            Session["Error_Msg"] = error.Message;
+            Session["Error_Msg"] = error.StackTrace;
             Response.Redirect("~/Error.aspx", true);
         }
     }

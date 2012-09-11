@@ -17,12 +17,8 @@ using NPOI.HPSF;
 using NPOI.POIFS.FileSystem;
 using NPOI.SS.UserModel;
 
-
-public partial class Exportar_Seguimiento : System.Web.UI.Page
+public partial class ReporteDadosAlta : System.Web.UI.Page
 {
-
-    private HSSFWorkbook Libro;
-    
     protected void Page_Load(object sender, EventArgs e)
     {
         try
@@ -30,10 +26,10 @@ public partial class Exportar_Seguimiento : System.Web.UI.Page
             List<string> permisos = (List<string>)Session["Permisos_usuario"];
             bool permisoEncontrado = false;
             Paciente pac = new Paciente();
-            
+
             foreach (string rol in permisos)
             {
-                if (rol.Equals("pSegPac"))
+                if (rol.Equals("pRepAltas"))
                 {
                     permisoEncontrado = true;
                     break;
@@ -60,11 +56,12 @@ public partial class Exportar_Seguimiento : System.Web.UI.Page
         }
         catch (Exception error)
         {
-            Session["Error_Msg"] = error.Message;
+            Session["Error_Msg"] = error.Message+"\n"+error.StackTrace;
             Response.Redirect("~/Error.aspx", true);
         }
-               
     }
+
+
 
     private void cargarDoctores()
     {
@@ -133,6 +130,7 @@ public partial class Exportar_Seguimiento : System.Web.UI.Page
         lblDoctor.Visible = false;
     }
 
+
     protected void btEjecutar_Click(object sender, EventArgs e)
     {
         try
@@ -150,19 +148,19 @@ public partial class Exportar_Seguimiento : System.Web.UI.Page
             dd = int.Parse(this.txtFechaFinal.Text.Substring(0, 2));
             DateTime fechaFin = new DateTime(yy, mm, dd);
 
-            gvSeguimientoPaciente.DataSource = segPacientes.BusquedaporRangoFecha2(fechaIni, fechaFin, centroId, ddlDoctor.SelectedValue);
+            gvSeguimientoPaciente.DataSource = segPacientes.ReporteDadosAltaporDoctor(fechaIni, fechaFin, centroId, ddlDoctor.SelectedValue);
             gvSeguimientoPaciente.DataBind();
 
             btExportar.Visible = true;
         }
         catch (Exception error)
         {
-            Session["Error_Msg"] = error.StackTrace;
+            Session["Error_Msg"] = error.Message;
             Response.Redirect("~/Error.aspx", true);
         }
 
     }
-    
+
     protected void btExportar_Click(object sender, EventArgs e)
     {
         /*string filename = "Export.xls";
@@ -175,6 +173,7 @@ public partial class Exportar_Seguimiento : System.Web.UI.Page
         
         Response.BinaryWrite(escribirStream().GetBuffer());
         Response.End();*/
+
         exportToExcel("Export.xls", gvSeguimientoPaciente);
     }
 
@@ -198,87 +197,7 @@ public partial class Exportar_Seguimiento : System.Web.UI.Page
         response.End();
     }
 
-    private void inicializarLibro()
-    {
-        Libro = new HSSFWorkbook();
 
-        //Crea una entrada a DocumentSummaryInformation
-        DocumentSummaryInformation dsi = PropertySetFactory.CreateDocumentSummaryInformation();
-        dsi.Company = "Unitec";
-        Libro.DocumentSummaryInformation = dsi;
 
-        //Crea una entrada para SummaryInformation
-        SummaryInformation si = PropertySetFactory.CreateSummaryInformation();
-        si.Subject = "Desarrollado por alumnos de Ing. Software II periodo 2012";
-        Libro.SummaryInformation = si;
-    }
 
-    private void generarDatos()
-    {
-        ISheet hoja1 = Libro.CreateSheet("Hoja1");
-        hoja1.DisplayGridlines = false;
-
-        int alto = gvSeguimientoPaciente.Rows.Count;
-        int ancho = gvSeguimientoPaciente.Columns.Count;
-
-        IRow fila = hoja1.CreateRow(0);
-        for (int j = 0; j < ancho; j++)
-        {
-            IFont fuente = Libro.CreateFont();
-            fuente.Color = HSSFColor.WHITE.index;
-
-            ICellStyle estilo = Libro.CreateCellStyle();
-            estilo.FillForegroundColor = HSSFColor.BLACK.index;
-            estilo.FillPattern = FillPatternType.SOLID_FOREGROUND;
-            
-            estilo.BorderBottom = NPOI.SS.UserModel.BorderStyle.MEDIUM;
-            estilo.BottomBorderColor = HSSFColor.BLACK.index;
-            
-            estilo.BorderLeft = NPOI.SS.UserModel.BorderStyle.MEDIUM;
-            estilo.LeftBorderColor = HSSFColor.BLACK.index;
-
-            estilo.BorderRight = NPOI.SS.UserModel.BorderStyle.MEDIUM;
-            estilo.RightBorderColor = HSSFColor.BLACK.index;
-
-            estilo.BorderTop = NPOI.SS.UserModel.BorderStyle.MEDIUM;
-            estilo.TopBorderColor = HSSFColor.BLACK.index;
-            
-            estilo.SetFont(fuente);
-            
-            ICell celda = fila.CreateCell(j);
-            celda.CellStyle = estilo;
-            celda.SetCellValue(gvSeguimientoPaciente.HeaderRow.Cells[j].Text.ToString());
-        }
-        
-        for (int i = 1; i <= alto; i++)
-        {
-            IRow row = hoja1.CreateRow(i);
-            for (int j = 0; j < ancho; j++)
-            {
-                ICellStyle estilo = Libro.CreateCellStyle();
-                estilo.BorderBottom = NPOI.SS.UserModel.BorderStyle.THIN;
-                estilo.BottomBorderColor = HSSFColor.BLACK.index;
-
-                estilo.BorderLeft = NPOI.SS.UserModel.BorderStyle.THIN;
-                estilo.LeftBorderColor = HSSFColor.BLACK.index;
-
-                estilo.BorderTop = NPOI.SS.UserModel.BorderStyle.THIN;
-                estilo.TopBorderColor = HSSFColor.BLACK.index;
-
-                estilo.BorderRight = NPOI.SS.UserModel.BorderStyle.THIN;
-                estilo.RightBorderColor = HSSFColor.BLACK.index;
-                
-                ICell celda = row.CreateCell(j);
-                celda.CellStyle = estilo;
-                celda.SetCellValue(gvSeguimientoPaciente.Rows[i - 1].Cells[j].Text);
-            }
-        }
-    }
-
-    private MemoryStream escribirStream()
-    {
-        MemoryStream file = new MemoryStream();
-        Libro.Write(file);
-        return file;
-    }
 }

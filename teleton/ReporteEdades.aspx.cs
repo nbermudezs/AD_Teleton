@@ -4,10 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using BL;
 
-
-
-//Agregados
 using System.Web.UI.HtmlControls;
 using BL;
 using System.Data;
@@ -20,93 +18,54 @@ using NPOI.POIFS.FileSystem;
 using NPOI.SS.UserModel;
 
 
-
-
-public partial class Default2 : System.Web.UI.Page
+public partial class ReporteEdades : System.Web.UI.Page
 {
-
-  
-
     protected void Page_Load(object sender, EventArgs e)
     {
         try
         {
+            List<string> permisos = (List<string>)Session["Permisos_usuario"];
+            bool permisoEncontrado = false;
+            //Paciente pac = new Paciente();
 
-            if (!IsPostBack)
+            foreach (string rol in permisos)
             {
-                List<string> permisos = (List<string>)Session["Permisos_usuario"];
-                bool permisoEncontrado = false;
-                Paciente pac = new Paciente();
-
-                foreach (string rol in permisos)
+                if (rol.Equals("pRepEdades"))
                 {
-                    if (rol.Equals("pRepEdades"))
-                    {
-                        permisoEncontrado = true;
-                        break;
-                    }
+                    permisoEncontrado = true;
+                    break;
                 }
-
-                if (!permisoEncontrado)
-                {
-                    //Si no tiene permiso redireccionamos
-                    //Response.Write("<script>alert('Usted no posee permisos suficientes para accesar a este recurso')</script>");
-                    Response.Redirect("NoAccess.aspx");
-                }
-
-
-
-                ceFechaFinal.SelectedDate = DateTime.Now;
-                ceFechaInicio.SelectedDate = DateTime.Now;
-
-                cargarInstrucciones();
             }
+
+            if (!permisoEncontrado)
+            {
+                //Si no tiene permiso redireccionamos
+                //Response.Write("<script>alert('Usted no posee permisos suficientes para accesar a este recurso')</script>");
+                Response.Redirect("NoAccess.aspx");
+            }
+
+          /*  if (!IsPostBack)
+            {
+                if (!pac.isDoctor(Session.Contents["nombre_usuario"].ToString()))
+                    cargarDoctores();
+                else
+                    cargarDoctor();
+            }*/
+
+            ceFechaFinal.SelectedDate = DateTime.Now;
+            ceFechaInicio.SelectedDate = DateTime.Now;
         }
         catch (Exception error)
         {
-            Session["Error_Msg"] = error.StackTrace;
+            Session["Error_Msg"] = error.Message+"\n"+error.StackTrace;
             Response.Redirect("~/Error.aspx", true);
         }
+         
     }
-
-
-    
-
-
-    private void cargarInstrucciones()
-    {
-        try
-        {
-            BL.Empleados doctores = new BL.Empleados();
-            BL.Paciente instrucciones = new BL.Paciente();
-            DataTable escolaridades = instrucciones.cargarEscolaridad();
-
-            ddEscolaridad.DataSource = escolaridades;
-
-            ddEscolaridad.DataTextField = "GRADO";
-            ddEscolaridad.DataValueField = "ID";
-            ddEscolaridad.DataBind();
-     
-
-
-        }
-        catch (Exception error)
-        {
-            Session["Error_Msg"] = error.Message;
-            Response.Redirect("~/Error.aspx", true);
-        }
-    }
-
-
-
-
     protected void btEjecutar_Click(object sender, EventArgs e)
     {
         try
         {
-
-           
-
             SeguimientoPacientes segPacientes = new SeguimientoPacientes();
             int centroId = (int)long.Parse(Session["Centro_idNum"].ToString());
 
@@ -120,26 +79,26 @@ public partial class Default2 : System.Web.UI.Page
             dd = int.Parse(this.txtFechaFinal.Text.Substring(0, 2));
             DateTime fechaFin = new DateTime(yy, mm, dd);
 
-            gvSeguimientoPaciente.DataSource = segPacientes.BusquedaPorInstruccion(fechaIni, fechaFin, centroId,int.Parse(ddEscolaridad.SelectedValue));
+            gvSeguimientoPaciente.DataSource = segPacientes.BusquedaporEdades(fechaIni, fechaFin , centroId,edadfecha(Convert.ToInt32(edad1.Text)),edadfecha(Convert.ToInt32(edad2.Text)));
             gvSeguimientoPaciente.DataBind();
 
             btExportar.Visible = true;
-            
-       
-           
-
         }
         catch (Exception error)
         {
             Session["Error_Msg"] = error.Message;
             Response.Redirect("~/Error.aspx", true);
         }
-    }
-    protected void btExportar_Click(object sender, EventArgs e)
-    {
-        exportToExcel("Export.xls", gvSeguimientoPaciente);
-    }
 
+    }
+    private DateTime edadfecha(int edad) 
+    {
+            
+            DateTime hoy = DateTime.Today;
+            DateTime nacfech= (hoy.AddDays(-365*edad));
+            DateTime ret = new DateTime(nacfech.Year, nacfech.Month, nacfech.Day, 23, 59, 59);
+            return ret;
+    }
 
     private void exportToExcel(string nameReport, GridView fuente)
     {
@@ -160,6 +119,8 @@ public partial class Default2 : System.Web.UI.Page
         response.Write(sw.ToString());
         response.End();
     }
-
-    
+    protected void btExportar_Click(object sender, EventArgs e)
+    {
+        exportToExcel("Export.xls", gvSeguimientoPaciente);
+    }
 }
