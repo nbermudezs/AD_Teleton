@@ -45,8 +45,7 @@
                     <li class="field">
                         <div class="fieldIzquierdo">
                             Elija un nivel de Instruccion
-                            <asp:DropDownList ID="ddEscolaridad" runat="server" Height="17px" Width="138px">
-                                <asp:ListItem></asp:ListItem>
+                            <asp:DropDownList ID="ddEscolaridad" runat="server" Height="16px" Width="199px">
                             </asp:DropDownList>
                         </div>
                         <div class="fieldDerecho">

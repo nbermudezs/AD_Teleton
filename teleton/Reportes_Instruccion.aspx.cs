@@ -24,35 +24,43 @@ using NPOI.SS.UserModel;
 
 public partial class Default2 : System.Web.UI.Page
 {
+
+  
+
     protected void Page_Load(object sender, EventArgs e)
     {
         try
         {
-            List<string> permisos = (List<string>)Session["Permisos_usuario"];
-            bool permisoEncontrado = false;
-            Paciente pac = new Paciente();
 
-            foreach (string rol in permisos)
+            if (!IsPostBack)
             {
-                if (rol.Equals("pRepEdades"))
+                List<string> permisos = (List<string>)Session["Permisos_usuario"];
+                bool permisoEncontrado = false;
+                Paciente pac = new Paciente();
+
+                foreach (string rol in permisos)
                 {
-                    permisoEncontrado = true;
-                    break;
+                    if (rol.Equals("pRepEdades"))
+                    {
+                        permisoEncontrado = true;
+                        break;
+                    }
                 }
+
+                if (!permisoEncontrado)
+                {
+                    //Si no tiene permiso redireccionamos
+                    //Response.Write("<script>alert('Usted no posee permisos suficientes para accesar a este recurso')</script>");
+                    Response.Redirect("NoAccess.aspx");
+                }
+
+
+
+                ceFechaFinal.SelectedDate = DateTime.Now;
+                ceFechaInicio.SelectedDate = DateTime.Now;
+
+                cargarInstrucciones();
             }
-
-            if (!permisoEncontrado)
-            {
-                //Si no tiene permiso redireccionamos
-                //Response.Write("<script>alert('Usted no posee permisos suficientes para accesar a este recurso')</script>");
-                Response.Redirect("NoAccess.aspx");
-            }
-
-            
-
-            ceFechaFinal.SelectedDate = DateTime.Now;
-            ceFechaInicio.SelectedDate = DateTime.Now;
-            cargarInstrucciones();
         }
         catch (Exception error)
         {
@@ -105,6 +113,10 @@ public partial class Default2 : System.Web.UI.Page
             gvSeguimientoPaciente.DataBind();
 
             btExportar.Visible = true;
+            
+       
+           
+
         }
         catch (Exception error)
         {
@@ -137,4 +149,6 @@ public partial class Default2 : System.Web.UI.Page
         response.Write(sw.ToString());
         response.End();
     }
+
+    
 }
