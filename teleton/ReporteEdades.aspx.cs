@@ -96,7 +96,8 @@ public partial class ReporteEdades : System.Web.UI.Page
             
             DateTime hoy = DateTime.Today;
             DateTime nacfech= (hoy.AddDays(-365*edad));
-            return nacfech;
+            DateTime ret = new DateTime(nacfech.Year, nacfech.Month, nacfech.Day, 23, 59, 59);
+            return ret;
     }
 
     private void exportToExcel(string nameReport, GridView fuente)

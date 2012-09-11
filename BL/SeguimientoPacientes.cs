@@ -595,7 +595,7 @@ namespace BL
                         on p.expediente equals e.expediente
                         join a in entities.diagnosticos
                         on p.id_diagnostico equals a.id
-                        where p.fecha.Year >= fechainit.Year && p.fecha.Month >= fechainit.Month && p.fecha.Day >= fechainit.Day &&
+                        where  p.fecha.Year >= fechainit.Year && p.fecha.Month >= fechainit.Month && p.fecha.Day >= fechainit.Day &&
                               p.fecha.Year <= fechafin.Year && p.fecha.Month <= fechafin.Month && p.fecha.Day <= fechafin.Day && p.prefijo == centroid
                         select new { p.fecha, p.expediente, a.diagnostico1, p.evaluador, p.notas, e.nombres, e.primer_apellido };
 
@@ -1166,6 +1166,8 @@ namespace BL
         {
             DateTime fechaFinal = new DateTime(fechafin.Year, fechafin.Month, fechafin.Day, 23, 59, 59);
             DateTime fechaInicial = new DateTime(fechainit.Year, fechainit.Month, fechainit.Day, 23, 59, 59);
+            DateTime FechaNac2 = new DateTime(nac1.Year, nac1.Month, nac1.Day, 23, 59, 59);
+            DateTime FechaNac1 = new DateTime(nac2.Year, nac2.Month, nac2.Day, 23, 59, 59);
 
             var query = from p in entities.evoluciones
 
@@ -1179,7 +1181,7 @@ namespace BL
                              where emp.puesto == 16
                              select new { temp.username, emp.nombres, emp.primer_apellido, emp.segundo_apellido})
                         on p.evaluador equals doc.username
-
+                     
                         join b in entities.pacientes 
                         on p.expediente equals b.expediente
 
@@ -1204,9 +1206,9 @@ namespace BL
                         join oc in entities.ocupaciones
                         on p.id_ocupacion equals oc.id
 
-                        where (p.fecha.CompareTo(fechaInicial) >= 0) &&
-                                (p.fecha.CompareTo(fechaFinal) <= 0) && (p.prefijo == centroid) &&
-                                (b.fecha_nac.CompareTo(nac1)>=0) && (b.fecha_nac.CompareTo(nac2)<=0)
+                        where (p.fecha.Year>=fechaInicial.Year) &&
+                                (p.fecha.Year<=fechaFinal.Year) && (p.prefijo == centroid) &&
+                                (b.fecha_nac.Year>=FechaNac1.Year) && (b.fecha_nac.Year<=FechaNac2.Year)
 
                         select new
                         {   
