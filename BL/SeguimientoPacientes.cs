@@ -594,6 +594,9 @@ namespace BL
                                      join b in entities.pacientes
                                      on p.expediente equals b.expediente
 
+                                     join kk in entities.estado_alta
+                                     on p.id_estado_alta equals kk.id
+
                                      join r in entities.condicions
                                      on p.id_condicion equals r.simbolo
 
@@ -616,7 +619,7 @@ namespace BL
                                      on p.id_ocupacion equals oc.id
 
                                      where (p.fecha.CompareTo(fechaInicial) >= 0) &&
-                                     (p.fecha.CompareTo(fechaFinal) <= 0) && (p.prefijo == centroid)
+                                     (p.fecha.CompareTo(fechaFinal) <= 0) && (p.prefijo == centroid) && (p.id_estado_alta > 0)
 
 
                                      select new
@@ -668,6 +671,9 @@ namespace BL
                                      join b in entities.pacientes
                                      on p.expediente equals b.expediente
 
+                                     join kk in entities.estado_alta
+                                     on p.id_estado_alta equals kk.id
+
                                      join r in entities.condicions
                                      on p.id_condicion equals r.simbolo
 
@@ -691,7 +697,7 @@ namespace BL
 
                                      where (p.fecha.CompareTo(fechainit) >= 0) &&
                                      (p.fecha.CompareTo(fechaFinal) <= 0) && (p.prefijo == centroid)
-                                             && doc.username == doctor
+                                             && (doc.username == doctor) && (p.id_estado_alta > 0)
 
                                      select new
                                      {
